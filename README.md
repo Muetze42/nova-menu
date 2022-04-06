@@ -64,7 +64,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     MenuItem::resource(User::class)
                         ->canSee(function () use ($request) {
                             return $request->user()->is_admin;
-                    }),
+                        }),
                 ])->icon('user')->collapsable()
             ];
         });

@@ -36,7 +36,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     // Menu Items
                 ])->icon('user')
                     ->collapsable()
-                    ->canSee(function () {
+                    ->canSee(function () use ($request) {
                         return $request->user()->is_admin;
                     }),
             ];

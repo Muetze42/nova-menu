@@ -3,7 +3,8 @@
 This package is for Nova 4. 
 
 This package brings back the policy authorization for MenuItem.  
-Also, the well-known canSee method is added to MenuItem and MenuSection.
+Also, the well-known canSee method is added to MenuItem and MenuSection.  
+Empty menu sections are automatically hidden.
 
 ## Install
 ```
@@ -70,7 +71,3 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         });
     }
 ```
-
----
-## Todo
-Hide: `MenuSection` if empty

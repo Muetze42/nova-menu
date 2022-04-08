@@ -3,7 +3,6 @@
 namespace NormanHuth\NovaMenu;
 
 
-use Illuminate\Support\Facades\Log;
 use Laravel\Nova\AuthorizedToSee;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Menu\MenuSection as BaseMenuSection;
@@ -12,6 +11,15 @@ use Laravel\Nova\URL;
 class MenuSection extends BaseMenuSection
 {
     use AuthorizedToSee;
+
+    protected ?string $faIcon = null;
+
+    public function faIcon(string $faIcon): static
+    {
+        $this->faIcon = $faIcon;
+
+        return $this;
+    }
 
     /**
      * Construct a new Menu Section instance.
@@ -38,14 +46,17 @@ class MenuSection extends BaseMenuSection
         $url = !empty($this->path) ? URL::make($this->path) : null;
         $request = app(NovaRequest::class);
 
+        $component = $this->faIcon ? 'menu-section-fa' : 'menu-section';
+        $icon = $this->faIcon ?: $this->icon;
+
         if (!empty(json_decode($this->items)) && $this->authorizedToSee($request)) {
             return [
                 'key' => md5($this->name.'-'.$this->path),
                 'name' => $this->name,
-                'component' => 'menu-section',
+                'component' => $component,
                 'items' => $this->items,
                 'collapsable' => $this->collapsable,
-                'icon' => $this->icon,
+                'icon' => $icon,
                 'path' => (string) $url,
                 'active' => optional($url)->active() ?? false,
             ];

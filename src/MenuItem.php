@@ -39,6 +39,8 @@ class MenuItem extends BaseMenuItem
     {
         $gate = Gate::getPolicyFor($resourceClass::$model);
 
+        static::$authorized = true;
+
         if (!is_null($gate) && method_exists($gate, 'viewAny')) {
             $response = Gate::inspect('viewAny', $resourceClass::$model);
             if (!$response->allowed()) {

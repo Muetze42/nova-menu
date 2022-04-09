@@ -13,6 +13,21 @@ class MenuItem extends BaseMenuItem
     use AuthorizedToSee;
 
     protected static bool $authorized = true;
+    protected static bool $hasPath = false;
+
+    /**
+     * Construct a new Menu Item instance.
+     *
+     * @param  string  $name
+     * @param  string|null  $path
+     */
+    public function __construct($name, $path = null)
+    {
+        if ($path) {
+            static::$hasPath = true;
+        }
+        parent::__construct($name, $path);
+    }
 
     /**
      * Create a menu from resource class.
@@ -46,7 +61,7 @@ class MenuItem extends BaseMenuItem
         $url = URL::make($this->path, $this->external);
         $request = app(NovaRequest::class);
 
-        if ($this->authorizedToSee($request) && static::$authorized) {
+        if (static::$hasPath || ($this->authorizedToSee($request) && static::$authorized)) {
             return [
                 'name'      => $this->name,
                 'component' => $this->component,

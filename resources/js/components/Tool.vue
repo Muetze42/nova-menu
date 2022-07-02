@@ -1,7 +1,12 @@
 <template>
-    <div class="sidebar-section" v-if="item.items.length">
+    <div class="sidebar-section" v-if="item.path || item.items.length > 0">
         <!-- Section title with link -->
-        <Link v-if="item.path" :href="item.path" class="sidebar-section-title">
+        <Link
+            v-if="item.path"
+            :href="item.path"
+            class="sidebar-section-title"
+            @click="toggleMainMenu"
+        >
             <span class="sidebar-label">
                 <span class="sidebar-icon sidebar-fa-icon">
                     <i :class="item.icon"></i>
@@ -63,6 +68,7 @@
 
 <script>
 import { Collapsable } from './../mixins/index'
+import { mapMutations } from 'vuex'
 
 export default {
     mixins: [Collapsable],
@@ -70,6 +76,7 @@ export default {
     props: ['item'],
 
     methods: {
+        ...mapMutations(['toggleMainMenu']),
         handleClick() {
             this.toggleCollapse()
         },

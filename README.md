@@ -4,7 +4,7 @@ This package is for Nova 4.
 
 * ~~This package brings back the policy authorization for MenuItem~~ Include since Nova 4.2.5
 * ~~Also, the well-known canSee method is added to MenuItem and MenuSection~~ Include since Nova 4.2.5
-* Empty menu sections are automatically hidden
+* ~~Empty menu sections are automatically hidden~~ Include since Nova 4.6.0
 * Optionally Font Awesome Icons can be used
 
 ## Install

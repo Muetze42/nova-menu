@@ -5,7 +5,7 @@
             v-if="item.path"
             :href="item.path"
             class="sidebar-section-title"
-            @click="toggleMainMenu"
+            @click="handleClick"
         >
             <span class="sidebar-label">
                 <span class="sidebar-icon sidebar-fa-icon">
@@ -17,6 +17,12 @@
                     class="sidebar-section-label"
                 >
                     {{ item.name }}
+
+                    <span v-if="item.badge" class="mx-2 absolute right-3">
+                        <Badge :extra-classes="item.badge.typeClass" class="">
+                            {{ item.badge.value }}
+                        </Badge>
+                    </span>
                 </span>
             </span>
         </Link>
@@ -26,7 +32,7 @@
             v-else-if="!item.path && item.collapsable"
             :aria-expanded="ariaExpanded"
             class="sidebar-section-title"
-            @click="handleClick"
+            @click="toggleCollapse"
         >
             <span class="sidebar-label">
                 <span class="sidebar-icon sidebar-fa-icon">
@@ -35,6 +41,12 @@
 
                 <span class="sidebar-section-label">
                     {{ item.name }}
+                </span>
+
+                <span v-if="item.badge" class="mx-2 absolute right-8">
+                    <Badge :extra-classes="item.badge.typeClass" class="">
+                        {{ item.badge.value }}
+                    </Badge>
                 </span>
             </span>
 
@@ -68,7 +80,7 @@
 
 <script>
 import { Collapsable } from './../mixins/index'
-import { mapMutations } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
     mixins: [Collapsable],
@@ -77,9 +89,14 @@ export default {
 
     methods: {
         ...mapMutations(['toggleMainMenu']),
+
         handleClick() {
-            this.toggleCollapse()
+            if (this.mainMenuShown) {
+                this.toggleMainMenu()
+            }
         },
     },
+
+    computed: mapGetters(['mainMenuShown']),
 }
 </script>

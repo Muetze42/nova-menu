@@ -42,6 +42,7 @@ class MenuSection extends BaseMenuSection
             'icon' => $icon,
             'path' => (string) $url,
             'active' => optional($url)->active() ?? false,
+            'badge' => $this->resolveBadge(),
         ];
     }
 }

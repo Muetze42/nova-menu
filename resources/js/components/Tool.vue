@@ -1,9 +1,9 @@
 <template>
-    <div class="sidebar-section">
+    <div class="sidebar-section" v-if="item.items.length">
         <!-- Section title with link -->
         <Link v-if="item.path" :href="item.path" class="sidebar-section-title">
             <span class="sidebar-label">
-                <span class="sidebar-icon">
+                <span class="sidebar-icon sidebar-fa-icon">
                     <i :class="item.icon"></i>
                 </span>
 
@@ -24,7 +24,7 @@
             @click="handleClick"
         >
             <span class="sidebar-label">
-                <span class="sidebar-icon">
+                <span class="sidebar-icon sidebar-fa-icon">
                     <i :class="item.icon"></i>
                 </span>
 
@@ -38,7 +38,7 @@
 
         <h3 v-else class="sidebar-section-title">
             <span class="sidebar-label">
-                <span class="sidebar-icon">
+                <span class="sidebar-icon sidebar-fa-icon">
                     <i :class="item.icon"></i>
                 </span>
 

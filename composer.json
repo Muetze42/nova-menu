@@ -1,32 +1,25 @@
 {
     "name": "norman-huth/nova-menu",
-    "description": "This package brings back the policy authorization for MenuItem. Also, the well-known canSee method is added to MenuItem and MenuSection. Empty menu sections are automatically hidden.",
-    "homepage": "https://github.com/Muetze42/nova-menu",
+    "license": "MIT",
     "support": {
         "issues": "https://github.com/Muetze42/nova-menu/issues",
         "source": "https://github.com/Muetze42/nova-menu",
         "docs": "https://github.com/Muetze42/nova-menu#readme"
     },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Norman Huth",
-            "homepage": "https://huth.it"
-        }
-    ],
-    "keywords": [
-        "nova",
-        "laravel",
-        "nova-4",
-        "laravel-nova"
-    ],
     "autoload": {
         "psr-4": {
             "NormanHuth\\NovaMenu\\": "src/"
         }
     },
+    "authors": [
+        {
+            "name": "Norman Huth",
+            "email": "norman@huth.it",
+            "homepage": "https://huth.it"
+        }
+    ],
     "require": {
-        "laravel/nova": "^4.0.0",
+        "laravel/nova": "^4.2.5",
         "php": "^8.0"
     },
     "extra": {

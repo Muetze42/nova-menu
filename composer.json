@@ -14,12 +14,11 @@
     "authors": [
         {
             "name": "Norman Huth",
-            "email": "norman@huth.it",
             "homepage": "https://huth.it"
         }
     ],
     "require": {
-        "laravel/nova": "^4.2.5",
+        "laravel/nova": "^4.12.13",
         "php": "^8.0"
     },
     "extra": {

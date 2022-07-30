@@ -35,9 +35,7 @@ class MenuSection extends BaseMenuSection
             'key' => md5($this->name.'-'.$this->path),
             'name' => $this->name,
             'component' => $component,
-            'items' => $this->items->reject(function ($item) use ($request) {
-                return method_exists($item, 'authorizedToSee') && ! $item->authorizedToSee($request);
-            })->values(),
+            'items' => $this->items->authorized($request)->withoutEmptyItems()->all(),
             'collapsable' => $this->collapsable,
             'icon' => $icon,
             'path' => (string) $url,

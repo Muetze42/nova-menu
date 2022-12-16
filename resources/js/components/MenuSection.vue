@@ -9,7 +9,7 @@
         >
             <span class="sidebar-label">
                 <span class="sidebar-icon sidebar-fa-icon">
-                    <i :class="item.icon"></i>
+                    <i :class="item.icon" class="fa-fw"></i>
                 </span>
 
                 <span
@@ -36,7 +36,7 @@
         >
             <span class="sidebar-label">
                 <span class="sidebar-icon sidebar-fa-icon">
-                    <i :class="item.icon"></i>
+                    <i :class="item.icon" class="fa-fw"></i>
                 </span>
 
                 <span class="sidebar-section-label">
@@ -56,7 +56,7 @@
         <h3 v-else class="sidebar-section-title">
             <span class="sidebar-label">
                 <span class="sidebar-icon sidebar-fa-icon">
-                    <i :class="item.icon"></i>
+                    <i :class="item.icon" class="fa-fw"></i>
                 </span>
 
                 <span class="sidebar-section-label">

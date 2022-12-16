@@ -17,19 +17,18 @@ composer require norman-huth/nova-menu
 * Use `NormanHuth\NovaMenu\MenuSection` instead of `Laravel\Nova\Menu\MenuSection`
  
 ---
-## Custom Icon Usage
+## Usage
 Use Font Awesome with `faIcon()`
+
+### Font Awesome icon in MenuSection
+
+Use the `faIcon` method:
 
 ```php
 use NormanHuth\NovaMenu\MenuSection; // <!- Use this
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
     public function boot()
     {
         parent::boot();
@@ -44,7 +43,53 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     }
 ```
 
+### MenuGroup icons
+
+#### Use Heroicon in MenuGroup
+
+Use the `icon` method
+
+```php
+use NormanHuth\NovaMenu\MenuGroup; // <!- Use this
+
+class NovaServiceProvider extends NovaApplicationServiceProvider
+{
+    public function boot()
+    {
+        parent::boot();
+        Nova::mainMenu(function (Request $request) {
+            return [
+                MenuGroup::make(__('Customers'), [
+                    // Menu Items
+                ])->icon('chart-bar')
+            ];
+        });
+    }
+```
+
+#### Use Font Awesome in MenuGroup
+
+Use the `faIcon` method
+
+```php
+use NormanHuth\NovaMenu\MenuGroup; // <!- Use this
+
+class NovaServiceProvider extends NovaApplicationServiceProvider
+{
+    public function boot()
+    {
+        parent::boot();
+        Nova::mainMenu(function (Request $request) {
+            return [
+                MenuGroup::make(__('Customers'), [
+                    // Menu Items
+                ])->faIcon('fa-brands fa-laravel')
+            ];
+        });
+    }
+```
+
 ### Font Awesome is not on board at all?
 This package doesn't include Font Awesome. The font must still be added manually.  
 How you do that is up to you. Here is one way:
-* Add Your Font Awesome JS oder CSS in `resources/views/partials/meta.blade.php`
+* Add Your Font Awesome JS oder CSS in `resources/vendor/nova/views/partials/meta.blade.php`

@@ -2,15 +2,21 @@
 
 namespace NormanHuth\NovaMenu;
 
-
+use Exception;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Menu\MenuSection as BaseMenuSection;
+use Laravel\Nova\Menu\MenuSection as Section;
 use Laravel\Nova\URL;
 
-class MenuSection extends BaseMenuSection
+class MenuSection extends Section
 {
     protected ?string $faIcon = null;
 
+    /**
+     * Set Font Awesome icon to the menu
+     *
+     * @param string $faIcon
+     * @return $this
+     */
     public function faIcon(string $faIcon): static
     {
         $this->faIcon = $faIcon;
@@ -22,13 +28,14 @@ class MenuSection extends BaseMenuSection
      * Prepare the menu for JSON serialization.
      *
      * @return array<string, mixed>
+     * @throws Exception
      */
     public function jsonSerialize(): array
     {
         $request = app(NovaRequest::class);
         $url = ! empty($this->path) ? URL::make($this->path) : null;
 
-        $component = $this->faIcon ? 'menu-section-fa' : 'menu-section';
+        $component = $this->faIcon ? 'menu-section-norman-huth' : 'menu-section';
         $icon = $this->faIcon ?: $this->icon;
 
         return [

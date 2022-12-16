@@ -16,7 +16,8 @@ class PackageServiceProvider extends ServiceProvider
     public function boot()
     {
         Nova::serving(function (ServingNova $event) {
-            Nova::script('menu-section-fa', __DIR__.'/../dist/js/tool.js');
+            Nova::script('norman-huth-menu', __DIR__.'/../dist/js/tool.js');
+            Nova::style('nova-prism-js', __DIR__.'/../dist/css/tool.css');
         });
     }
 }

@@ -10,6 +10,13 @@ class MenuGroup extends Group
     protected bool $isAwesome = false;
 
     /**
+     * The menu's component.
+     *
+     * @var string
+     */
+    public $component = 'menu-group-norman-huth';
+
+    /**
      * Set Font Awesome icon to the menu
      *
      * @param string $faIcon
@@ -42,13 +49,6 @@ class MenuGroup extends Group
      * @var string|null
      */
     public ?string $icon = null;
-
-    /**
-     * The menu's component.
-     *
-     * @var string
-     */
-    public $component = 'menu-group-norman-huth';
 
 
     /**

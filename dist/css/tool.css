@@ -1,7 +1,1 @@
-.sidebar-fa-icon i {
-  font-size: 1.4rem;
-  color: currentColor;
-}
-.sidebar-fa-icon svg, .sidebar-fa-icon path {
-  fill: currentColor;
-}
+.sidebar-fa-icon{color:currentColor;font-size:1.4rem}.sidebar-fa-icon path,.sidebar-fa-icon svg{fill:currentColor}

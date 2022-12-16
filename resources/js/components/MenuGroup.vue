@@ -7,14 +7,7 @@
         >
             <h4 class="sidebar-group-title">
                 <span class="sidebar-group-icon">
-                    <component v-if="item.icon && !item.awesome"
-                               :is="`heroicons-outline-${item.icon}`"
-                               height="24"
-                               width="24"
-                    />
-                    <span class="sidebar-icon sidebar-fa-icon" v-if="item.icon && item.awesome">
-                        <i :class="item.icon" class="ml-auto"></i>
-                    </span>
+                    <MenuGroupIcon :item="item" />
                 </span>
 
                 <span class="sidebar-group-label">
@@ -29,14 +22,7 @@
         </button>
         <h4 v-else class="sidebar-group-title">
             <span class="sidebar-group-icon">
-                <component v-if="item.icon && !item.awesome"
-                    :is="`heroicons-outline-${item.icon}`"
-                    height="24"
-                    width="24"
-                />
-                <span class="sidebar-icon sidebar-fa-icon" v-if="item.icon && item.awesome">
-                    <i :class="item.icon" class="ml-auto"></i>
-                </span>
+                <MenuGroupIcon :item="item" />
             </span>
             <span class="sidebar-group-label">
         {{ item.name }}
@@ -56,9 +42,14 @@
 
 <script>
 import { Collapsable } from './../mixins/index'
+import MenuGroupIcon from './MenuGroupIcon'
 
 export default {
     mixins: [Collapsable],
+
+    components: {
+        MenuGroupIcon
+    },
 
     props: ['item'],
 

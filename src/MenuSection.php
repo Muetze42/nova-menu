@@ -9,6 +9,11 @@ use Laravel\Nova\URL;
 
 class MenuSection extends Section
 {
+    /**
+     * Font Awesome instead of Heroicon
+     *
+     * @var string|null
+     */
     protected ?string $faIcon = null;
 
     /**

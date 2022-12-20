@@ -8,3 +8,4 @@ mix
     .sass('resources/scss/tool.scss', 'css')
     .vue({version: 3})
     .nova('norman-huth/nova-menu')
+    .disableNotifications()

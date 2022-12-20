@@ -7,7 +7,19 @@ use Laravel\Nova\Menu\MenuGroup as Group;
 
 class MenuGroup extends Group
 {
+    /**
+     * Use Font Awesome instead of Heroicon
+     *
+     * @var bool
+     */
     protected bool $isAwesome = false;
+
+    /**
+     * Icon in label
+     *
+     * @var bool
+     */
+    protected bool $asLabel = false;
 
     /**
      * The menu's component.
@@ -44,6 +56,18 @@ class MenuGroup extends Group
     }
 
     /**
+     * Use Icon in label attribute
+     *
+     * @return $this
+     */
+    public function asLabel(): static
+    {
+        $this->asLabel = true;
+
+        return $this;
+    }
+
+    /**
      * the menu's icon.
      *
      * @var string|null
@@ -68,6 +92,7 @@ class MenuGroup extends Group
             'key'         => $this->key(),
             'icon'        => $this->icon,
             'awesome'     => $this->isAwesome,
+            'as_label'    => $this->asLabel,
         ];
     }
 }

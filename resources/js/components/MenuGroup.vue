@@ -7,12 +7,13 @@
         >
             <h4 class="sidebar-group-title">
                 <span class="sidebar-group-icon">
-                    <MenuGroupIcon :item="item" />
+                    <MenuGroupIcon :item="item" v-if="!item.as_label" />
                 </span>
 
                 <span class="sidebar-group-label">
-          {{ item.name }}
-        </span>
+                    <MenuGroupIcon :item="item" v-if="item.as_label" />
+                    {{ item.name }}
+                </span>
 
                 <CollapseButton
                     class="sidebar-group-collapse-btn ml-auto"
@@ -22,11 +23,12 @@
         </button>
         <h4 v-else class="sidebar-group-title">
             <span class="sidebar-group-icon">
-                <MenuGroupIcon :item="item" />
+                <MenuGroupIcon :item="item" v-if="!item.as_label" />
             </span>
             <span class="sidebar-group-label">
-        {{ item.name }}
-      </span>
+                <MenuGroupIcon :item="item" v-if="item.as_label" />
+            {{ item.name }}
+            </span>
         </h4>
 
         <template v-if="!collapsed">

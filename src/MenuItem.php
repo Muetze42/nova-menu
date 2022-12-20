@@ -9,7 +9,18 @@ use Laravel\Nova\URL;
 
 class MenuItem extends BaseMenuItem
 {
+    /**
+     * Use Font Awesome instead of Heroicon
+     *
+     * @var bool
+     */
     protected bool $isAwesome = false;
+
+    /**
+     * Icon in label
+     *
+     * @var bool
+     */
     protected bool $asLabel = false;
 
     /**

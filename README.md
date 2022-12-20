@@ -128,12 +128,13 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     }
 ```
 
-#### Use the MenuItem icon as label
+#### Use the MenuItem or MenuGroup icon as label
 
 Use the `asLabel` method
 
 ```php
 use NormanHuth\NovaMenu\MenuItem; // <!- Use this
+use NormanHuth\NovaMenu\MenuGroup; // <!- Use this
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -142,6 +143,10 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         //--
         MenuItem::resource(User::class)->icon('chart-bar')->asLabel(),
         MenuItem::resource(User::class)->faIcon('fa-brands fa-laravel')->asLabel(),
+        //--
+        MenuGroup::make('Twitch', [
+        //--
+        ])->faIcon('fa-brands fa-twitch')->asLabel(),
         //--
     }
 ```

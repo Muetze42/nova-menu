@@ -10,7 +10,7 @@
                     <NHMenuIcon :icons="item.icons" v-if="!item.icons.asLabel" />
                 </span>
 
-                <span class="sidebar-group-label flex items-center gap-1">
+                <span class="sidebar-group-label flex items-center" :class="'gap-x-'+item.icons.labelGap">
                     <NHMenuIcon :icons="item.icons" v-if="item.icons.asLabel" class="inline-block" />
                     {{ item.name }}
                 </span>
@@ -26,7 +26,7 @@
                 <NHMenuIcon :icons="item.icons" v-if="!item.icons.asLabel" />
             </span>
 
-            <span class="sidebar-group-label flex items-center gap-1">
+            <span class="sidebar-group-label flex items-center" :class="'gap-x-'+item.icons.labelGap">
                 <NHMenuIcon :icons="item.icons" v-if="item.icons.asLabel" class="inline-block" />
                 {{ item.name }}
             </span>

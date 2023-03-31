@@ -105,6 +105,28 @@ MenuGroup::make(__('Licensing'), [/**...**/])->asLabel(),
 MenuItem::resource(User::class)->asLabel(),
 ```
 
+##### Controlling Gutters Between Icon And Label
+
+**Default**: 1 (0.25rem)
+
+| Method           | Gap      |
+|------------------|----------|
+| `->asLabel(0.5)` | 0.125rem |
+| `->asLabel(1.5)` | 0.375rem |
+| `->asLabel(2)`   | 0.5rem   |
+| `->asLabel(2.5)` | 0.625rem |
+| `->asLabel(3)`   | 0.75rem  |
+| `->asLabel(3.5)` | 0.875rem |
+| `->asLabel(4)`   | 1rem     |
+| `->asLabel(5)`   | 1.25rem  |
+| `->asLabel(6)`   | 1.5rem   |
+| `->asLabel(8)`   | 2rem     |
+
+```php
+MenuGroup::make(__('Licensing'), [/**...**/])->asLabel(2),
+MenuItem::resource(User::class)->asLabel(3.5),
+```
+
 ---
 
 [![More Laravel Nova Packages](https://raw.githubusercontent.com/Muetze42/asset-repo/main/svg/more-laravel-nova-packages.svg)](https://huth.it/nova-packages)

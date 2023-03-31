@@ -24,6 +24,7 @@ class MenuGroup extends Group
                     [
                         'height'  => $this->iconHeight,
                         'asLabel' => $this->asLabel,
+                        'labelGap' => $this->labelGap,
                     ]
                 ),
                 'component' => 'menu-group-norman-huth'

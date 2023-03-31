@@ -10,7 +10,7 @@
             <span class="sidebar-item-icon flex items-center">
                 <NHMenuIcon :icons="item.icons" v-if="!item.icons.asLabel" />
             </span>
-            <span class="sidebar-item-label flex items-center flex items-center gap-1">
+            <span class="sidebar-item-label flex items-center flex items-center" :class="'gap-x-'+item.icons.labelGap">
                 <NHMenuIcon :icons="item.icons" v-if="item.icons.asLabel" />
                 {{ item.name }}
 

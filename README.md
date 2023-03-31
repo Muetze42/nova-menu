@@ -69,8 +69,8 @@ MenuItem::resource(User::class)->svgIcon(resource_path('icon.svg')),
 Use the `imageIcon()` method.
 
 ```php
-MenuSection::make(__('Customers'), [/**...**/])->imageIcon('/images/icon.png'),
-MenuGroup::make(__('Licensing'), [/**...**/])->imageIcon('/images/icon.png'),
+MenuSection::make(__('Customers'), [/**...**/])->imageIcon(asset('images/car-icon.png')),
+MenuGroup::make(__('Licensing'), [/**...**/])->imageIcon('https://domain.tld/images/icon.png'),
 MenuItem::resource(User::class)->imageIcon('/images/icon.png'),
 ```
 

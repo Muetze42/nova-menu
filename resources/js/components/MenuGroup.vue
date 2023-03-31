@@ -7,11 +7,11 @@
         >
             <h4 class="sidebar-group-title">
                 <span class="sidebar-group-icon">
-                    <MenuGroupIcon :item="item" v-if="!item.as_label" />
+                    <NHMenuIcon :icons="item.icons" v-if="!item.icons.asLabel" />
                 </span>
 
-                <span class="sidebar-group-label">
-                    <MenuGroupIcon :item="item" v-if="item.as_label" />
+                <span class="sidebar-group-label flex items-center gap-1">
+                    <NHMenuIcon :icons="item.icons" v-if="item.icons.asLabel" class="inline-block" />
                     {{ item.name }}
                 </span>
 
@@ -23,11 +23,12 @@
         </button>
         <h4 v-else class="sidebar-group-title">
             <span class="sidebar-group-icon">
-                <MenuGroupIcon :item="item" v-if="!item.as_label" />
+                <NHMenuIcon :icons="item.icons" v-if="!item.icons.asLabel" />
             </span>
-            <span class="sidebar-group-label">
-                <MenuGroupIcon :item="item" v-if="item.as_label" />
-            {{ item.name }}
+
+            <span class="sidebar-group-label flex items-center gap-1">
+                <NHMenuIcon :icons="item.icons" v-if="item.icons.asLabel" class="inline-block" />
+                {{ item.name }}
             </span>
         </h4>
 
@@ -43,21 +44,20 @@
 </template>
 
 <script>
-import { Collapsable } from './../mixins/index'
-import MenuGroupIcon from './MenuGroupIcon'
+import Collapsable from './../../../../../vendor/laravel/nova/resources/js/mixins/Collapsable.js'
 
 export default {
+    name: "MenuGroup",
     mixins: [Collapsable],
-
-    components: {
-        MenuGroupIcon
-    },
-
     props: ['item'],
-
     methods: {
         handleClick() {
             this.toggleCollapse()
+        },
+    },
+    computed: {
+        collapsedByDefault() {
+            return this.item?.collapsedByDefault ?? false
         },
     },
 }

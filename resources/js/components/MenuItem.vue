@@ -7,25 +7,24 @@
             :class="{ 'inertia-link-active': item.active }"
             @click="handleClick"
         >
-            <span class="sidebar-item-icon">
-                <MenuItemIcon :item="item" v-if="!item.as_label" />
+            <span class="sidebar-item-icon flex items-center">
+                <NHMenuIcon :icons="item.icons" v-if="!item.icons.asLabel" />
             </span>
-            <span class="sidebar-item-label flex items-center">
-        <MenuItemIcon :item="item" v-if="item.as_label" />
-        {{ item.name }}
+            <span class="sidebar-item-label flex items-center flex items-center gap-1">
+                <NHMenuIcon :icons="item.icons" v-if="item.icons.asLabel" />
+                {{ item.name }}
 
-        <span v-if="item.badge" class="mx-2 absolute right-0">
-          <Badge :extra-classes="item.badge.typeClass">
-            {{ item.badge.value }}
-          </Badge>
-        </span>
-      </span>
+                <span v-if="item.badge" class="mx-2 absolute right-0">
+                    <Badge :extra-classes="item.badge.typeClass">
+                        {{ item.badge.value }}
+                    </Badge>
+                </span>
+            </span>
         </component>
     </div>
 </template>
 
 <script>
-import MenuItemIcon from "./MenuItemIcon"
 import identity from 'lodash/identity'
 import isNull from 'lodash/isNull'
 import omitBy from 'lodash/omitBy'
@@ -33,17 +32,13 @@ import pickBy from 'lodash/pickBy'
 import { mapGetters, mapMutations } from 'vuex'
 
 export default {
+    name: "MenuItem",
     props: {
         item: {
             type: Object,
             required: true,
         },
     },
-
-    components: {
-        MenuItemIcon
-    },
-
     methods: {
         ...mapMutations(['toggleMainMenu']),
 
@@ -53,7 +48,6 @@ export default {
             }
         },
     },
-
     computed: {
         ...mapGetters(['mainMenuShown']),
 

@@ -1,166 +1,113 @@
 # Nova Menu Advanced
 
-This package is for Nova 4.
-
 * ~~This package brings back the policy authorization for MenuItem~~ Include since Nova 4.2.5
 * ~~Also, the well-known canSee method is added to MenuItem and MenuSection~~ Include since Nova 4.2.5
 * ~~Empty menu sections are automatically hidden~~ Include since Nova 4.6.0
-* Heroicon & Font Awesome Icon for MenuSection, MenuItem & MenuGroup
+* Heroicon, Font Awesome, SVG & Image Icon for MenuSection, MenuGroup & MenuItem
 
-## Install
+![Preview](docs/preview.png)
+
+## Instruction
+
+**Font Awesome is not include in this package.**  
+You can add Font Awesome JS or CSS for example in the `resources/vendor/nova/views/partials/meta.blade.php` file.
+
+### Installation
 
 ```
 composer require norman-huth/nova-menu
 ```
 
-## Description
+### Usage
 
 * Use `NormanHuth\NovaMenu\MenuSection` instead of `Laravel\Nova\Menu\MenuSection`
-* Use `NormanHuth\NovaMenu\MenuItem` instead of `Laravel\Nova\Menu\MenuItem`
 * Use `NormanHuth\NovaMenu\MenuGroup` instead of `Laravel\Nova\Menu\MenuGroup`
+* Use `NormanHuth\NovaMenu\MenuItem` instead of `Laravel\Nova\Menu\MenuItem`
+
+#### Use Heroicon Icons
+
+Use the `icon()` method.
+
+```php
+MenuSection::make(__('Customers'), [/**...**/])->icon('chart-bar'),
+MenuGroup::make(__('Licensing'), [/**...**/])->icon('chart-bar'),
+MenuItem::resource(User::class)->icon('chart-bar'),
+```
+
+#### Use Font Awesome Icon
+
+Use the `faIcon()` method.
+
+```php
+MenuSection::make(__('Customers'), [/**...**/])->faIcon('fa-brands fa-laravel'),
+MenuGroup::make(__('Licensing'), [/**...**/])->faIcon('fa-brands fa-laravel'),
+MenuItem::resource(User::class)->faIcon('fa-brands fa-laravel'),
+```
+
+#### Use SVG Icon
+
+Use the `svgIcon()` method.
+
+##### Use SVG Directly
+
+```php
+MenuSection::make(__('Customers'), [/**...**/])->svgIcon('<svg xmlns="...'),
+MenuGroup::make(__('Licensing'), [/**...**/])->svgIcon('<svg xmlns="...'),
+MenuItem::resource(User::class)->svgIcon('<svg xmlns="...'),
+```
+
+##### Use SVG File
+
+```php
+MenuSection::make(__('Customers'), [/**...**/])->svgIcon(resource_path('icon.svg')),
+MenuGroup::make(__('Licensing'), [/**...**/])->svgIcon(resource_path('icon.svg')),
+MenuItem::resource(User::class)->svgIcon(resource_path('icon.svg')),
+```
+
+#### Use Image Icon
+
+Use the `imageIcon()` method.
+
+```php
+MenuSection::make(__('Customers'), [/**...**/])->imageIcon('/images/icon.png'),
+MenuGroup::make(__('Licensing'), [/**...**/])->imageIcon('/images/icon.png'),
+MenuItem::resource(User::class)->imageIcon('/images/icon.png'),
+```
+
+#### Use HTML Icon
+
+Use the `htmlIcon()` method.
+
+```php
+MenuSection::make(__('Customers'), [/**...**/])->htmlIcon(/** Your HTML Code **/),
+MenuGroup::make(__('Licensing'), [/**...**/])->htmlIcon(/** Your HTML Code **/),
+MenuItem::resource(User::class)->htmlIcon(/** Your HTML Code **/),
+```
+
+#### Change Icon Height
+
+Use the `iconHeight()` method.  
+(Possible from 4 to 32 pixels)
+
+```php
+MenuSection::make(__('Customers'), [/**...**/])->iconHeight(24), // 24 default
+MenuGroup::make(__('Licensing'), [/**...**/])->iconHeight(18), // 18 default
+MenuItem::resource(User::class)->iconHeight(18), // 18 default
+```
+
+#### Use Icon In Label
+
+Use the `asLabel()` method.  
+(Only available for `MenuGroup` and `MenuItem`)
+
+```php
+MenuGroup::make(__('Licensing'), [/**...**/])->asLabel(),
+MenuItem::resource(User::class)->asLabel(),
+```
 
 ---
 
-## Usage
-
-### Font Awesome icon in MenuSection
-
-Use the `faIcon` method:
-
-```php
-use NormanHuth\NovaMenu\MenuSection; // <!- Use this
-
-class NovaServiceProvider extends NovaApplicationServiceProvider
-{
-    public function boot()
-    {
-        parent::boot();
-        Nova::mainMenu(function (Request $request) {
-            return [
-                MenuSection::make(__('Customers'), [
-                    // Menu Items
-                ])->collapsable()
-                ->faIcon('fa-brands fa-laravel')
-            ];
-        });
-    }
-```
-
-### MenuGroup icons
-
-#### Use Heroicon in MenuGroup
-
-Use the `icon` method
-
-```php
-use NormanHuth\NovaMenu\MenuGroup; // <!- Use this
-
-class NovaServiceProvider extends NovaApplicationServiceProvider
-{
-    public function boot()
-    {
-        parent::boot();
-        Nova::mainMenu(function (Request $request) {
-            return [
-                MenuGroup::make(__('Customers'), [
-                    // Menu Items
-                ])->icon('chart-bar')
-            ];
-        });
-    }
-```
-
-#### Use Font Awesome in MenuGroup
-
-Use the `faIcon` method
-
-```php
-use NormanHuth\NovaMenu\MenuGroup; // <!- Use this
-
-class NovaServiceProvider extends NovaApplicationServiceProvider
-{
-    public function boot()
-    {
-        parent::boot();
-        Nova::mainMenu(function (Request $request) {
-            return [
-                MenuGroup::make(__('Customers'), [
-                    // Menu Items
-                ])->faIcon('fa-brands fa-laravel')
-            ];
-        });
-    }
-```
-
-### MenuItem icons
-
-#### Use Heroicon in MenuItem
-
-Use the `icon` method
-
-```php
-use NormanHuth\NovaMenu\MenuItem; // <!- Use this
-
-class NovaServiceProvider extends NovaApplicationServiceProvider
-{
-    public function boot()
-    {
-        //--
-        MenuItem::resource(User::class)->icon('chart-bar'),
-        //--
-    }
-```
-
-#### Use Font Awesome in MenuItem
-
-Use the `faIcon` method
-
-```php
-use NormanHuth\NovaMenu\MenuItem; // <!- Use this
-
-class NovaServiceProvider extends NovaApplicationServiceProvider
-{
-    public function boot()
-    {
-        //--
-        MenuItem::resource(User::class)->faIcon('fa-brands fa-laravel'),
-        //--
-    }
-```
-
-#### Use the MenuItem or MenuGroup icon as label
-
-Use the `asLabel` method
-
-```php
-use NormanHuth\NovaMenu\MenuItem; // <!- Use this
-use NormanHuth\NovaMenu\MenuGroup; // <!- Use this
-
-class NovaServiceProvider extends NovaApplicationServiceProvider
-{
-    public function boot()
-    {
-        //--
-        MenuItem::resource(User::class)->icon('chart-bar')->asLabel(),
-        MenuItem::resource(User::class)->faIcon('fa-brands fa-laravel')->asLabel(),
-        //--
-        MenuGroup::make('Twitch', [
-        //--
-        ])->faIcon('fa-brands fa-twitch')->asLabel(),
-        //--
-    }
-```
-
-### Font Awesome is not on board at all?
-
-This package doesn't include Font Awesome. The font must still be added manually.  
-How you do that is up to you. Here is one way:
-
-* Add Your Font Awesome JS oder CSS in `resources/vendor/nova/views/partials/meta.blade.php`
-
----
 [![More Laravel Nova Packages](https://raw.githubusercontent.com/Muetze42/asset-repo/main/svg/more-laravel-nova-packages.svg)](https://huth.it/nova-packages)
-
 
 [![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine/)
 

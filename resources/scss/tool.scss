@@ -1,7 +1,18 @@
+@for $i from 4 through 32 {
+    .sidebar-icon-h#{$i} {
+        max-height: #{$i}px;
+        svg {
+            height: #{$i}px;
+        }
+    }
+}
+
 .sidebar-fa-icon {
-    font-size: 1.4rem;
-    color: currentColor;
-    svg, path {
+    svg {
         fill: currentColor;
     }
+}
+
+.gap-1 {
+    gap: 0.25rem;
 }

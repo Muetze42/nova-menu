@@ -6,7 +6,6 @@
 * Heroicon, Font Awesome, SVG & Image Icon for MenuSection, MenuGroup & MenuItem
 
 ![Preview](docs/preview.png)
-![Preview2](docs/preview2.png)
 
 ## Instruction
 

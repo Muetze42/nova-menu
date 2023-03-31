@@ -11,13 +11,6 @@ class NovaExtension {
         this.name = name
     }
 
-    webpackPlugins() {
-        return new webpack.ProvidePlugin({
-            _: 'lodash',
-            Errors: 'form-backend-validation',
-        })
-    }
-
     webpackConfig(webpackConfig) {
         webpackConfig.externals = {
             vue: 'Vue',

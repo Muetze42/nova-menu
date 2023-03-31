@@ -8,8 +8,8 @@
             @click="handleClick"
         >
             <span class="sidebar-label">
-                <span class="sidebar-icon sidebar-fa-icon">
-                    <i :class="item.icon" class="fa-fw"></i>
+                <span class="sidebar-icon">
+                    <NHMenuIcon :icons="item.icons" />
                 </span>
 
                 <span
@@ -19,7 +19,7 @@
                     {{ item.name }}
 
                     <span v-if="item.badge" class="mx-2 absolute right-3">
-                        <Badge :extra-classes="item.badge.typeClass" class="">
+                        <Badge :extra-classes="item.badge.typeClass">
                             {{ item.badge.value }}
                         </Badge>
                     </span>
@@ -35,8 +35,8 @@
             @click="toggleCollapse"
         >
             <span class="sidebar-label">
-                <span class="sidebar-icon sidebar-fa-icon">
-                    <i :class="item.icon" class="fa-fw"></i>
+                <span class="sidebar-icon">
+                    <NHMenuIcon :icons="item.icons" />
                 </span>
 
                 <span class="sidebar-section-label">
@@ -44,7 +44,7 @@
                 </span>
 
                 <span v-if="item.badge" class="mx-2 absolute right-8">
-                    <Badge :extra-classes="item.badge.typeClass" class="">
+                    <Badge :extra-classes="item.badge.typeClass">
                         {{ item.badge.value }}
                     </Badge>
                 </span>
@@ -55,8 +55,8 @@
 
         <h3 v-else class="sidebar-section-title">
             <span class="sidebar-label">
-                <span class="sidebar-icon sidebar-fa-icon">
-                    <i :class="item.icon" class="fa-fw"></i>
+                <span class="sidebar-icon">
+                    <NHMenuIcon :icons="item.icons" />
                 </span>
 
                 <span class="sidebar-section-label">
@@ -79,14 +79,13 @@
 </template>
 
 <script>
-import { Collapsable } from './../mixins/index'
+import Collapsable from './../../../../../vendor/laravel/nova/resources/js/mixins/Collapsable.js'
 import { mapGetters, mapMutations } from 'vuex'
 
 export default {
+    name: "MenuSection",
     mixins: [Collapsable],
-
     props: ['item'],
-
     methods: {
         ...mapMutations(['toggleMainMenu']),
 
@@ -96,7 +95,12 @@ export default {
             }
         },
     },
+    computed: {
+        ...mapGetters(['mainMenuShown']),
 
-    computed: mapGetters(['mainMenuShown']),
+        collapsedByDefault() {
+            return this.item?.collapsedByDefault ?? false
+        },
+    },
 }
 </script>

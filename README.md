@@ -7,11 +7,6 @@
 
 ![Preview](docs/preview.png)
 
-## Instruction
-
-**Font Awesome is not include in this package.**  
-You can add Font Awesome JS or CSS for example in the `resources/vendor/nova/views/partials/meta.blade.php` file.
-
 ### Installation
 
 ```
@@ -125,6 +120,14 @@ MenuItem::resource(User::class)->asLabel(),
 ```php
 MenuGroup::make(__('Licensing'), [/**...**/])->asLabel(2),
 MenuItem::resource(User::class)->asLabel(3.5),
+```
+
+### Optional: Install Font Awesome
+
+If you don't have Font Awesome integrated in Nova, but want to use it, you can optionally install Font Awesome Free with this command.
+
+```
+php artisan nova-menu:font-awesome
 ```
 
 ---

@@ -8,9 +8,11 @@
         "hot": "mix watch --hot",
         "prod": "npm run production",
         "production": "mix --production",
-        "nova:install": "npm --prefix='../../vendor/laravel/nova' ci"
+        "nova:install": "npm --prefix='../../vendor/laravel/nova' ci",
+        "build:fa": "mix --mix-config=webpack.fa.mix.js --production"
     },
-    "devDependencies": {
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^6.4.0",
         "@vue/compiler-sfc": "^3.2.22",
         "laravel-mix": "^6.0.41",
         "lodash": "^4.17.21",

@@ -8,7 +8,7 @@
 ![Preview 1](docs/preview.jpg)
 ![Preview 2](docs/preview2.jpg)
 
-Example from [example-app-nvpRt7](https://github.com/Muetze42/example-app-nvpRt7)
+Examples from [example-app-nvpRt7](https://github.com/Muetze42/example-app-nvpRt7)
 
 ![Preview Dark](docs/preview-dark.jpg)
 ![Preview Light](docs/preview-light.jpg)

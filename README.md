@@ -83,7 +83,7 @@ MenuItem::resource(User::class)->htmlIcon(/** Your HTML Code **/),
 #### Change Icon Height
 
 Use the `iconHeight()` method.  
-(Possible from 4 to 32 pixels)
+(Value `int` in Pixel. Possible from `4 to 32` pixels)
 
 ```php
 MenuSection::make(__('Customers'), [/**...**/])->iconHeight(24), // MenuSection: 24 default
@@ -136,7 +136,7 @@ php artisan nova-menu:font-awesome
 Install all Tailwind CSS [Text Color](https://tailwindcss.com/docs/text-color), [Border Color](https://tailwindcss.com/docs/border-color) and
 [Background Color](https://tailwindcss.com/docs/background-color) classes inclusive dark mode classes.
 
-**But note that here at almost 600kb CSS are loaded more!**
+**But note that with this file will be loaded 620KB more CSS!**
 
 ```
 php artisan nova-menu:tailwind-colors

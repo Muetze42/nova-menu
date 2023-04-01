@@ -35,10 +35,13 @@ class FontAwesomeCommand extends Command
         $file = resource_path('views/vendor/nova/partials/meta.blade.php');
         $meta = file_exists($file) ? file_get_contents($file)."\n" : '';
         /** @noinspection HtmlUnknownTarget */
-        if (!str_contains($meta, '<link rel="stylesheet" href="/css/fontawesome.css">')) {
+        if (
+            !str_contains($meta, '<link rel="stylesheet" href="/css/fontawesome.css">') &&
+            !str_contains($meta, '<link rel="stylesheet" href="{{ asset(\'css/fontawesome.css\') }}">')
+        ) {
             $this->createTarget();
             /** @noinspection HtmlUnknownTarget */
-            $meta.= '<link rel="stylesheet" href="/css/fontawesome.css">';
+            $meta.= '<link rel="stylesheet" href="{{ asset(\'css/fontawesome.css\') }}">';
             file_put_contents($file, $meta);
         }
     }

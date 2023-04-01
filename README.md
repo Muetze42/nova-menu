@@ -5,8 +5,14 @@
 * ~~Empty menu sections are automatically hidden~~ Include since Nova 4.6.0
 * Heroicon, Font Awesome, SVG & Image Icon for MenuSection, MenuGroup & MenuItem
 
-![Preview](docs/preview.png)
-![Preview 2](docs/preview2.png)
+![Preview 1](docs/preview.jpg)
+![Preview 2](docs/preview2.jpg)
+
+Example from [example-app-nvpRt7](https://github.com/Muetze42/example-app-nvpRt7)
+
+![Preview Dark](docs/preview-dark.jpg)
+![Preview Light](docs/preview-light.jpg)
+![Preview Hover](docs/preview-hover.jpg)
 
 ### Installation
 

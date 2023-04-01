@@ -83,7 +83,7 @@ MenuItem::resource(User::class)->htmlIcon(/** Your HTML Code **/),
 #### Change Icon Height
 
 Use the `iconHeight()` method.  
-(Possible from 4 to 32 pixels)
+(Value `int` in Pixel. Possible from `4 to 32` pixels)
 
 ```php
 MenuSection::make(__('Customers'), [/**...**/])->iconHeight(24), // MenuSection: 24 default

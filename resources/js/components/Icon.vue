@@ -9,13 +9,13 @@
     <i
         class="sidebar-fa-icon"
         v-else-if="icons.fontawesome"
-        :class="icons.fontawesome, icons.classes.icon"
+        :class="icons.fontawesome + icons.classes.icon"
         :style="{fontSize: icons.height + 'px'}"
     />
     <span
         v-else-if="icons.html"
         class="sidebar-fa-icon"
-        :class="'sidebar-icon-h'+icons.height, icons.classes.icon"
+        :class="'sidebar-icon-h'+icons.height + icons.classes.icon"
         v-html="icons.html"
     />
     <img

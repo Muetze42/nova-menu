@@ -24,9 +24,9 @@ trait IconTrait
      * @var array
      */
     protected array $classes = [
-        'elem'  => null,
-        'icon'  => null,
-        'label' => null,
+        'elem'  => '',
+        'icon'  => '',
+        'label' => '',
     ];
 
     /**
@@ -164,7 +164,8 @@ trait IconTrait
         if (is_array($value)) {
             $value = implode(' ', $value);
         }
-        $this->classes[$key] = $value;
+
+        $this->classes[$key] = ' '.$value; // Keep whitespace!
 
         return $this;
     }

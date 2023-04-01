@@ -122,12 +122,23 @@ MenuGroup::make(__('Licensing'), [/**...**/])->asLabel(2),
 MenuItem::resource(User::class)->asLabel(3.5),
 ```
 
-### Optional: Install Font Awesome
+#### Optional: Install Font Awesome
 
 If you don't have Font Awesome integrated in Nova, but want to use it, you can optionally install Font Awesome Free with this command.
 
 ```
 php artisan nova-menu:font-awesome
+```
+
+#### Optional: Tailwind CSS Colors
+
+Install all Tailwind CSS [Text Color](https://tailwindcss.com/docs/text-color), [Border Color](https://tailwindcss.com/docs/border-color) and
+[Background Color](https://tailwindcss.com/docs/background-color) classes inclusive dark mode classes.
+
+**But note that here at almost 600kb CSS are loaded more!**
+
+```
+php artisan nova-menu:tailwind-colors
 ```
 
 ---

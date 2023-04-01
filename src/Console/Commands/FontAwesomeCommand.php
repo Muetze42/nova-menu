@@ -36,21 +36,26 @@ class FontAwesomeCommand extends Command
         $meta = file_exists($file) ? file_get_contents($file)."\n" : '';
         /** @noinspection HtmlUnknownTarget */
         if (!str_contains($meta, '<link rel="stylesheet" href="/css/fontawesome.css">')) {
+            $this->createTarget();
             /** @noinspection HtmlUnknownTarget */
-            if (!is_dir(resource_path('views'))) {
-                File::makeDirectory(resource_path('views'));
-            }
-            if (!is_dir(resource_path('views/vendor'))) {
-                File::makeDirectory(resource_path('views/vendor'));
-            }
-            if (!is_dir(resource_path('views/vendor/nova'))) {
-                File::makeDirectory(resource_path('views/vendor/nova'));
-            }
-            if (!is_dir(resource_path('views/vendor/nova/partials'))) {
-                File::makeDirectory(resource_path('views/vendor/nova/partials'));
-            }
             $meta.= '<link rel="stylesheet" href="/css/fontawesome.css">';
             file_put_contents($file, $meta);
+        }
+    }
+
+    protected function createTarget(): void
+    {
+        if (!is_dir(resource_path('views'))) {
+            File::makeDirectory(resource_path('views'));
+        }
+        if (!is_dir(resource_path('views/vendor'))) {
+            File::makeDirectory(resource_path('views/vendor'));
+        }
+        if (!is_dir(resource_path('views/vendor/nova'))) {
+            File::makeDirectory(resource_path('views/vendor/nova'));
+        }
+        if (!is_dir(resource_path('views/vendor/nova/partials'))) {
+            File::makeDirectory(resource_path('views/vendor/nova/partials'));
         }
     }
 }

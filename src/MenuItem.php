@@ -25,6 +25,7 @@ class MenuItem extends Item
                         'height'   => $this->iconHeight,
                         'asLabel'  => $this->asLabel,
                         'labelGap' => $this->labelGap,
+                        'classes'  => $this->classes,
                     ]
                 ),
                 'component' => 'menu-item-norman-huth'

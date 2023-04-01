@@ -6,6 +6,7 @@
 * Heroicon, Font Awesome, SVG & Image Icon for MenuSection, MenuGroup & MenuItem
 
 ![Preview](docs/preview.png)
+![Preview 2](docs/preview2.png)
 
 ### Installation
 
@@ -85,9 +86,9 @@ Use the `iconHeight()` method.
 (Possible from 4 to 32 pixels)
 
 ```php
-MenuSection::make(__('Customers'), [/**...**/])->iconHeight(24), // 24 default
-MenuGroup::make(__('Licensing'), [/**...**/])->iconHeight(18), // 18 default
-MenuItem::resource(User::class)->iconHeight(18), // 18 default
+MenuSection::make(__('Customers'), [/**...**/])->iconHeight(24), // MenuSection: 24 default
+MenuGroup::make(__('Licensing'), [/**...**/])->iconHeight(18),   // MenuGroup: 18 default
+MenuItem::resource(User::class)->iconHeight(18),                 // MenuItem: 18 default
 ```
 
 #### Use Icon In Label
@@ -139,6 +140,45 @@ Install all Tailwind CSS [Text Color](https://tailwindcss.com/docs/text-color), 
 
 ```
 php artisan nova-menu:tailwind-colors
+```
+
+#### Add Classes To Element
+
+Use the `elemClasses()` method.
+
+```php
+MenuSection::make(__('Customers'), [/**...**/])->elemClasses('class-1 class-2'),
+MenuGroup::make(__('Licensing'), [/**...**/])->elemClasses('class-1 class-2'),
+MenuItem::resource(User::class)->elemClasses('class-1 class-2'),
+MenuSection::make(__('Customers'), [/**...**/])->elemClasses(['class-1', 'class-2']),
+MenuGroup::make(__('Licensing'), [/**...**/])->elemClasses(['class-1', 'class-2']),
+MenuItem::resource(User::class)->elemClasses(['class-1', 'class-2']),
+```
+
+#### Add Classes To Icon
+
+Use the `iconClasses()` method.
+
+```php
+MenuSection::make(__('Customers'), [/**...**/])->iconClasses('class-1 class-2'),
+MenuGroup::make(__('Licensing'), [/**...**/])->iconClasses('class-1 class-2'),
+MenuItem::resource(User::class)->iconClasses('class-1 class-2'),
+MenuSection::make(__('Customers'), [/**...**/])->iconClasses(['class-1', 'class-2']),
+MenuGroup::make(__('Licensing'), [/**...**/])->iconClasses(['class-1', 'class-2']),
+MenuItem::resource(User::class)->iconClasses(['class-1', 'class-2']),
+```
+
+#### Add Classes To Label
+
+Use the `labelClasses()` method.
+
+```php
+MenuSection::make(__('Customers'), [/**...**/])->labelClasses('class-1 class-2'),
+MenuGroup::make(__('Licensing'), [/**...**/])->labelClasses('class-1 class-2'),
+MenuItem::resource(User::class)->labelClasses('class-1 class-2'),
+MenuSection::make(__('Customers'), [/**...**/])->labelClasses(['class-1', 'class-2']),
+MenuGroup::make(__('Licensing'), [/**...**/])->labelClasses(['class-1', 'class-2']),
+MenuItem::resource(User::class)->labelClasses(['class-1', 'class-2']),
 ```
 
 ---

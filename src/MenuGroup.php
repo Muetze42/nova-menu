@@ -22,9 +22,10 @@ class MenuGroup extends Group
                 'icons' => array_merge(
                     $this->icons,
                     [
-                        'height'  => $this->iconHeight,
-                        'asLabel' => $this->asLabel,
+                        'height'   => $this->iconHeight,
+                        'asLabel'  => $this->asLabel,
                         'labelGap' => $this->labelGap,
+                        'classes'  => $this->classes,
                     ]
                 ),
                 'component' => 'menu-group-norman-huth'

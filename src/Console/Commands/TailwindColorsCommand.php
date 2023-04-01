@@ -33,10 +33,13 @@ class TailwindColorsCommand extends FontAwesomeCommand
         $file = resource_path('views/vendor/nova/partials/meta.blade.php');
         $meta = file_exists($file) ? file_get_contents($file)."\n" : '';
         /** @noinspection HtmlUnknownTarget */
-        if (!str_contains($meta, '<link rel="stylesheet" href="/css/tailwind-colors.css">')) {
+        if (
+            !str_contains($meta, '<link rel="stylesheet" href="/css/tailwind-colors.css">') &&
+            !str_contains($meta, '<link rel="stylesheet" href="{{ asset(\'css/tailwind-colors.css\') }}">')
+        ) {
             $this->createTarget();
             /** @noinspection HtmlUnknownTarget */
-            $meta.= '<link rel="stylesheet" href="/css/tailwind-colors.css">';
+            $meta.= '<link rel="stylesheet" href="{{ asset(\'css/tailwind-colors.css\') }}">';
             file_put_contents($file, $meta);
         }
     }

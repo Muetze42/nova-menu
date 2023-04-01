@@ -4,13 +4,13 @@
             :is="component"
             v-bind="linkAttributes"
             class="sidebar-item-title relative"
-            :class="{ 'inertia-link-active': item.active }"
+            :class="{ 'inertia-link-active': item.active }, item.icons.classes.elem"
             @click="handleClick"
         >
             <span class="sidebar-item-icon flex items-center">
                 <NHMenuIcon :icons="item.icons" v-if="!item.icons.asLabel" />
             </span>
-            <span class="sidebar-item-label flex items-center flex items-center gap-1">
+            <span class="sidebar-item-label flex items-center flex items-center" :class="'gap-x-'+item.icons.labelGap, item.icons.classes.label">
                 <NHMenuIcon :icons="item.icons" v-if="item.icons.asLabel" />
                 {{ item.name }}
 

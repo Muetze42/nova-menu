@@ -6,6 +6,7 @@
             :href="item.path"
             class="sidebar-section-title"
             @click="handleClick"
+            :class="item.icons.classes.elem"
         >
             <span class="sidebar-label">
                 <span class="sidebar-icon">
@@ -13,7 +14,7 @@
                 </span>
 
                 <span
-                    :class="{ 'font-bold inertia-link-active': item.active }"
+                    :class="{ 'font-bold inertia-link-active': item.active }, item.icons.classes.label"
                     class="sidebar-section-label"
                 >
                     {{ item.name }}
@@ -33,13 +34,14 @@
             :aria-expanded="ariaExpanded"
             class="sidebar-section-title"
             @click="toggleCollapse"
+            :class="item.icons.classes.elem"
         >
             <span class="sidebar-label">
                 <span class="sidebar-icon">
                     <NHMenuIcon :icons="item.icons" />
                 </span>
 
-                <span class="sidebar-section-label">
+                <span class="sidebar-section-label" :class="item.icons.classes.label">
                     {{ item.name }}
                 </span>
 
@@ -53,13 +55,13 @@
             <CollapseButton :collapsed="collapsed" :to="item.path" class="ml-auto" />
         </button>
 
-        <h3 v-else class="sidebar-section-title">
+        <h3 v-else class="sidebar-section-title" :class="item.icons.classes.elem">
             <span class="sidebar-label">
                 <span class="sidebar-icon">
                     <NHMenuIcon :icons="item.icons" />
                 </span>
 
-                <span class="sidebar-section-label">
+                <span class="sidebar-section-label" :class="item.icons.classes.label">
                     {{ item.name }}
                 </span>
             </span>

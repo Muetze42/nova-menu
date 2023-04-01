@@ -19,6 +19,17 @@ trait IconTrait
     ];
 
     /**
+     * The classes for JSON serialization.
+     *
+     * @var array
+     */
+    protected array $classes = [
+        'elem'  => null,
+        'icon'  => null,
+        'label' => null,
+    ];
+
+    /**
      * Set Heroicon icon.
      *
      * @param string $icon
@@ -100,7 +111,66 @@ trait IconTrait
     }
 
     /**
-     * Set current icon and type.
+     * Set element classes
+     *
+     * @param string|array $classes
+     * @return $this
+     */
+    public function elemClasses(string|array $classes): static
+    {
+        $this->setClass('elem', $classes);
+
+        return $this;
+    }
+
+    /**
+     * Set icon classes
+     *
+     * @param string|array $classes
+     * @return $this
+     */
+    public function iconClasses(string|array $classes): static
+    {
+        $this->setClass('icon', $classes);
+
+        return $this;
+    }
+
+    /**
+     * Set label classes
+     *
+     * @param string|array $classes
+     * @return $this
+     */
+    public function labelClasses(string|array $classes): static
+    {
+        $this->setClass('label', $classes);
+
+        return $this;
+    }
+
+    /**
+     * Set current class for type.
+     *
+     * @param string $key
+     * @param string|array $value
+     * @return $this
+     */
+    protected function setClass(
+        #[ExpectedValues(values: ['elem', 'icon', 'label'])]
+        string $key,
+        string|array $value
+    ): static {
+        if (is_array($value)) {
+            $value = implode(' ', $value);
+        }
+        $this->classes[$key] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Set current icon for type.
      *
      * @param string $key
      * @param string $value

@@ -25,7 +25,10 @@ class MenuSection extends Section
         return array_merge(
             parent::jsonSerialize(),
             [
-                'icons'     => array_merge($this->icons, ['height' => $this->iconHeight]),
+                'icons'     => array_merge($this->icons, [
+                    'height'  => $this->iconHeight,
+                    'classes' => $this->classes,
+                ]),
                 'component' => 'menu-section-norman-huth'
             ],
         );

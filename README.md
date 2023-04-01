@@ -6,11 +6,7 @@
 * Heroicon, Font Awesome, SVG & Image Icon for MenuSection, MenuGroup & MenuItem
 
 ![Preview](docs/preview.png)
-
-## Instruction
-
-**Font Awesome is not include in this package.**  
-You can add Font Awesome JS or CSS for example in the `resources/vendor/nova/views/partials/meta.blade.php` file.
+![Preview 2](docs/preview2.png)
 
 ### Installation
 
@@ -90,9 +86,9 @@ Use the `iconHeight()` method.
 (Possible from 4 to 32 pixels)
 
 ```php
-MenuSection::make(__('Customers'), [/**...**/])->iconHeight(24), // 24 default
-MenuGroup::make(__('Licensing'), [/**...**/])->iconHeight(18), // 18 default
-MenuItem::resource(User::class)->iconHeight(18), // 18 default
+MenuSection::make(__('Customers'), [/**...**/])->iconHeight(24), // MenuSection: 24 default
+MenuGroup::make(__('Licensing'), [/**...**/])->iconHeight(18),   // MenuGroup: 18 default
+MenuItem::resource(User::class)->iconHeight(18),                 // MenuItem: 18 default
 ```
 
 #### Use Icon In Label
@@ -103,6 +99,86 @@ Use the `asLabel()` method.
 ```php
 MenuGroup::make(__('Licensing'), [/**...**/])->asLabel(),
 MenuItem::resource(User::class)->asLabel(),
+```
+
+##### Controlling Gutters Between Icon And Label
+
+**Default**: 1 (0.25rem)
+
+| Method           | Gap      |
+|------------------|----------|
+| `->asLabel(0.5)` | 0.125rem |
+| `->asLabel(1.5)` | 0.375rem |
+| `->asLabel(2)`   | 0.5rem   |
+| `->asLabel(2.5)` | 0.625rem |
+| `->asLabel(3)`   | 0.75rem  |
+| `->asLabel(3.5)` | 0.875rem |
+| `->asLabel(4)`   | 1rem     |
+| `->asLabel(5)`   | 1.25rem  |
+| `->asLabel(6)`   | 1.5rem   |
+| `->asLabel(8)`   | 2rem     |
+
+```php
+MenuGroup::make(__('Licensing'), [/**...**/])->asLabel(2),
+MenuItem::resource(User::class)->asLabel(3.5),
+```
+
+#### Optional: Install Font Awesome
+
+If you don't have Font Awesome integrated in Nova, but want to use it, you can optionally install Font Awesome Free with this command.
+
+```
+php artisan nova-menu:font-awesome
+```
+
+#### Optional: Tailwind CSS Colors
+
+Install all Tailwind CSS [Text Color](https://tailwindcss.com/docs/text-color), [Border Color](https://tailwindcss.com/docs/border-color) and
+[Background Color](https://tailwindcss.com/docs/background-color) classes inclusive dark mode classes.
+
+**But note that here at almost 600kb CSS are loaded more!**
+
+```
+php artisan nova-menu:tailwind-colors
+```
+
+#### Add Classes To Element
+
+Use the `elemClasses()` method.
+
+```php
+MenuSection::make(__('Customers'), [/**...**/])->elemClasses('class-1 class-2'),
+MenuGroup::make(__('Licensing'), [/**...**/])->elemClasses('class-1 class-2'),
+MenuItem::resource(User::class)->elemClasses('class-1 class-2'),
+MenuSection::make(__('Customers'), [/**...**/])->elemClasses(['class-1', 'class-2']),
+MenuGroup::make(__('Licensing'), [/**...**/])->elemClasses(['class-1', 'class-2']),
+MenuItem::resource(User::class)->elemClasses(['class-1', 'class-2']),
+```
+
+#### Add Classes To Icon
+
+Use the `iconClasses()` method.
+
+```php
+MenuSection::make(__('Customers'), [/**...**/])->iconClasses('class-1 class-2'),
+MenuGroup::make(__('Licensing'), [/**...**/])->iconClasses('class-1 class-2'),
+MenuItem::resource(User::class)->iconClasses('class-1 class-2'),
+MenuSection::make(__('Customers'), [/**...**/])->iconClasses(['class-1', 'class-2']),
+MenuGroup::make(__('Licensing'), [/**...**/])->iconClasses(['class-1', 'class-2']),
+MenuItem::resource(User::class)->iconClasses(['class-1', 'class-2']),
+```
+
+#### Add Classes To Label
+
+Use the `labelClasses()` method.
+
+```php
+MenuSection::make(__('Customers'), [/**...**/])->labelClasses('class-1 class-2'),
+MenuGroup::make(__('Licensing'), [/**...**/])->labelClasses('class-1 class-2'),
+MenuItem::resource(User::class)->labelClasses('class-1 class-2'),
+MenuSection::make(__('Customers'), [/**...**/])->labelClasses(['class-1', 'class-2']),
+MenuGroup::make(__('Licensing'), [/**...**/])->labelClasses(['class-1', 'class-2']),
+MenuItem::resource(User::class)->labelClasses(['class-1', 'class-2']),
 ```
 
 ---

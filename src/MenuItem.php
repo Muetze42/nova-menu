@@ -22,8 +22,10 @@ class MenuItem extends Item
                 'icons' => array_merge(
                     $this->icons,
                     [
-                        'height'  => $this->iconHeight,
-                        'asLabel' => $this->asLabel,
+                        'height'   => $this->iconHeight,
+                        'asLabel'  => $this->asLabel,
+                        'labelGap' => $this->labelGap,
+                        'classes'  => $this->classes,
                     ]
                 ),
                 'component' => 'menu-item-norman-huth'

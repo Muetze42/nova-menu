@@ -189,6 +189,10 @@ MenuItem::resource(User::class)->labelClasses(['class-1', 'class-2']),
 
 ---
 
+Todo: Mix for Font Awesome & Tailwind CSS
+
+---
+
 [![More Laravel Nova Packages](https://raw.githubusercontent.com/Muetze42/asset-repo/main/svg/more-laravel-nova-packages.svg)](https://huth.it/nova-packages)
 
 [![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine/)

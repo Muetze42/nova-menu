@@ -4,7 +4,7 @@
             :is="component"
             v-bind="linkAttributes"
             class="sidebar-item-title relative"
-            :class="{ 'inertia-link-active': item.active } + item.icons.classes.elem"
+            :class="[{ 'inertia-link-active': item.active }, item.icons.classes.elem]"
             @click="handleClick"
         >
             <span class="sidebar-item-icon flex items-center">

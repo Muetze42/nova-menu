@@ -14,7 +14,7 @@
                 </span>
 
                 <span
-                    :class="{ 'font-bold inertia-link-active': item.active } + item.icons.classes.label"
+                    :class="[{'font-bold inertia-link-active': item.active}, item.icons.classes.label]"
                     class="sidebar-section-label"
                 >
                     {{ item.name }}

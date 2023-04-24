@@ -7,6 +7,7 @@
             class="sidebar-section-title"
             @click="handleClick"
             :class="item.icons.classes.elem"
+            v-tooltip.click="item.tooltip"
         >
             <span class="sidebar-label">
                 <span class="sidebar-icon">
@@ -35,6 +36,7 @@
             class="sidebar-section-title"
             @click="toggleCollapse"
             :class="item.icons.classes.elem"
+            v-tooltip.click="item.tooltip"
         >
             <span class="sidebar-label">
                 <span class="sidebar-icon">
@@ -55,7 +57,7 @@
             <CollapseButton :collapsed="collapsed" :to="item.path" class="ml-auto" />
         </button>
 
-        <h3 v-else class="sidebar-section-title" :class="item.icons.classes.elem">
+        <h3 v-else class="sidebar-section-title" :class="item.icons.classes.elem" v-tooltip.click="item.tooltip">
             <span class="sidebar-label">
                 <span class="sidebar-icon">
                     <NHMenuIcon :icons="item.icons" />

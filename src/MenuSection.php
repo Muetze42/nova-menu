@@ -7,6 +7,7 @@ use Laravel\Nova\Menu\MenuSection as Section;
 class MenuSection extends Section
 {
     use IconTrait;
+    use TooltipTrait;
 
     /**
      * The icon height in pixel.
@@ -26,9 +27,10 @@ class MenuSection extends Section
             parent::jsonSerialize(),
             [
                 'icons' => array_merge($this->icons, [
-                    'height'  => $this->iconHeight,
+                    'height' => $this->iconHeight,
                     'classes' => $this->classes,
                 ]),
+                'tooltip' => $this->tooltip,
                 'component' => 'menu-section-norman-huth'
             ],
         );

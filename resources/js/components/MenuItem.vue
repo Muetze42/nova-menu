@@ -6,6 +6,7 @@
             class="sidebar-item-title relative"
             :class="[{ 'inertia-link-active': item.active }, item.icons.classes.elem]"
             @click="handleClick"
+            v-tooltip.click="item.tooltip"
         >
             <span class="sidebar-item-icon flex items-center">
                 <NHMenuIcon :icons="item.icons" v-if="!item.icons.asLabel" />

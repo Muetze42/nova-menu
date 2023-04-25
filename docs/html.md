@@ -8,9 +8,9 @@ use NormanHuth\NovaMenu\MenuGroup;
 use NormanHuth\NovaMenu\MenuItem;
 
 MenuSection::make(__('Customers'), [/**...**/])
-    ->htmlIcon(asset('images/car-icon.png')),
+    ->htmlIcon(/** Your HTML Code **/),
 MenuGroup::make(__('Licensing'), [/**...**/])
-    ->htmlIcon('https://domain.tld/images/icon.png'),
+   ->htmlIcon(/** Your HTML Code **/),
 MenuItem::resource(User::class)
-    ->htmlIcon('/images/icon.png'),
+   ->htmlIcon(/** Your HTML Code **/),
 ```

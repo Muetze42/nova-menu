@@ -61,7 +61,7 @@ use NormanHuth\NovaMenu\MenuCard;
 MenuCard::make('info'),
 ```
 
-### Border Radios
+### Border Radius
 
 You can add a border radius by invoking the `rounded` method when defining the menu card:
 

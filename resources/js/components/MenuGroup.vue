@@ -5,6 +5,7 @@
             @click="handleClick"
             class="sidebar-group-button mt-3"
             :class="item.icons.classes.elem"
+            v-tooltip.click="item.tooltip"
         >
             <h4 class="sidebar-group-title">
                 <span class="sidebar-group-icon">
@@ -24,7 +25,7 @@
                 />
             </h4>
         </button>
-        <h4 v-else class="sidebar-group-title" :class="item.icons.classes.elem">
+        <h4 v-else class="sidebar-group-title" :class="item.icons.classes.elem" v-tooltip.click="item.tooltip">
             <span class="sidebar-group-icon">
                 <NHMenuIcon :icons="item.icons" v-if="!item.icons.asLabel" />
             </span>

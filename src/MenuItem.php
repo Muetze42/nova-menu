@@ -8,6 +8,7 @@ class MenuItem extends Item
 {
     use IconTrait;
     use LabelTrait;
+    use TooltipTrait;
 
     /**
      * Prepare the menu for JSON serialization.
@@ -22,12 +23,13 @@ class MenuItem extends Item
                 'icons' => array_merge(
                     $this->icons,
                     [
-                        'height'   => $this->iconHeight,
-                        'asLabel'  => $this->asLabel,
+                        'height' => $this->iconHeight,
+                        'asLabel' => $this->asLabel,
                         'labelGap' => $this->labelGap,
-                        'classes'  => $this->classes,
+                        'classes' => $this->classes,
                     ]
                 ),
+                'tooltip' => $this->tooltip,
                 'component' => 'menu-item-norman-huth'
             ],
         );

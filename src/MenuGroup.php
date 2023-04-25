@@ -8,6 +8,7 @@ class MenuGroup extends Group
 {
     use IconTrait;
     use LabelTrait;
+    use TooltipTrait;
 
     /**
      * Prepare the menu for JSON serialization.
@@ -22,12 +23,13 @@ class MenuGroup extends Group
                 'icons' => array_merge(
                     $this->icons,
                     [
-                        'height'   => $this->iconHeight,
-                        'asLabel'  => $this->asLabel,
+                        'height' => $this->iconHeight,
+                        'asLabel' => $this->asLabel,
                         'labelGap' => $this->labelGap,
-                        'classes'  => $this->classes,
+                        'classes' => $this->classes,
                     ]
                 ),
+                'tooltip' => $this->tooltip,
                 'component' => 'menu-group-norman-huth'
             ],
         );

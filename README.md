@@ -1,195 +1,25 @@
 # Nova Menu Advanced
 
-* ~~This package brings back the policy authorization for MenuItem~~ Include since Nova 4.2.5
-* ~~Also, the well-known canSee method is added to MenuItem and MenuSection~~ Include since Nova 4.2.5
-* ~~Empty menu sections are automatically hidden~~ Include since Nova 4.6.0
-* Heroicon, Font Awesome, SVG & Image Icon for MenuSection, MenuGroup & MenuItem
+This package add following features to the [Laravel Nova menu](https://nova.laravel.com/docs/4.0/customization/menus.html):
 
-![Preview 1](docs/preview.jpg)
-![Preview 2](docs/preview2.jpg)
+* Heroicon, Font Awesome, SVG & Image Icon for MenuSection, MenuGroup & MenuItem
+* Add new item `MenuCard`
+* Add `tooltip()` method to MenuSection, MenuGroup, MenuItem & MenuCard (undocumented)
+
+For more informationen read the [Documentation](https://docs.huth.it/nova-menu).
+
+![Preview Dark Mode](https://github.com/Muetze42/nova-menu/blob/main/docs/preview-dark-mode.png)
+![Preview Light Mode](https://github.com/Muetze42/nova-menu/blob/main/docs/preview-light-mode.png)
 
 Examples from [example-app-nvpRt7](https://github.com/Muetze42/example-app-nvpRt7)
 
-![Preview Dark](docs/preview-dark.jpg)
-![Preview Light](docs/preview-light.jpg)
-![Preview Hover](docs/preview-hover.jpg)
-
-### Installation
-
-```
-composer require norman-huth/nova-menu
-```
-
-### Usage
-
-* Use `NormanHuth\NovaMenu\MenuSection` instead of `Laravel\Nova\Menu\MenuSection`
-* Use `NormanHuth\NovaMenu\MenuGroup` instead of `Laravel\Nova\Menu\MenuGroup`
-* Use `NormanHuth\NovaMenu\MenuItem` instead of `Laravel\Nova\Menu\MenuItem`
-
-#### Use Heroicon Icons
-
-Use the `icon()` method.
-
-```php
-MenuSection::make(__('Customers'), [/**...**/])->icon('chart-bar'),
-MenuGroup::make(__('Licensing'), [/**...**/])->icon('chart-bar'),
-MenuItem::resource(User::class)->icon('chart-bar'),
-```
-
-#### Use Font Awesome Icon
-
-Use the `faIcon()` method.
-
-```php
-MenuSection::make(__('Customers'), [/**...**/])->faIcon('fa-brands fa-laravel'),
-MenuGroup::make(__('Licensing'), [/**...**/])->faIcon('fa-brands fa-laravel'),
-MenuItem::resource(User::class)->faIcon('fa-brands fa-laravel'),
-```
-
-#### Use SVG Icon
-
-Use the `svgIcon()` method.
-
-##### Use SVG Directly
-
-```php
-MenuSection::make(__('Customers'), [/**...**/])->svgIcon('<svg xmlns="...'),
-MenuGroup::make(__('Licensing'), [/**...**/])->svgIcon('<svg xmlns="...'),
-MenuItem::resource(User::class)->svgIcon('<svg xmlns="...'),
-```
-
-##### Use SVG File
-
-```php
-MenuSection::make(__('Customers'), [/**...**/])->svgIcon(resource_path('icon.svg')),
-MenuGroup::make(__('Licensing'), [/**...**/])->svgIcon(resource_path('icon.svg')),
-MenuItem::resource(User::class)->svgIcon(resource_path('icon.svg')),
-```
-
-#### Use Image Icon
-
-Use the `imageIcon()` method.
-
-```php
-MenuSection::make(__('Customers'), [/**...**/])->imageIcon(asset('images/car-icon.png')),
-MenuGroup::make(__('Licensing'), [/**...**/])->imageIcon('https://domain.tld/images/icon.png'),
-MenuItem::resource(User::class)->imageIcon('/images/icon.png'),
-```
-
-#### Use HTML Icon
-
-Use the `htmlIcon()` method.
-
-```php
-MenuSection::make(__('Customers'), [/**...**/])->htmlIcon(/** Your HTML Code **/),
-MenuGroup::make(__('Licensing'), [/**...**/])->htmlIcon(/** Your HTML Code **/),
-MenuItem::resource(User::class)->htmlIcon(/** Your HTML Code **/),
-```
-
-#### Change Icon Height
-
-Use the `iconHeight()` method.  
-(Value `int` in Pixel. Possible from `4 to 32` pixels)
-
-```php
-MenuSection::make(__('Customers'), [/**...**/])->iconHeight(24), // MenuSection: 24 default
-MenuGroup::make(__('Licensing'), [/**...**/])->iconHeight(18),   // MenuGroup: 18 default
-MenuItem::resource(User::class)->iconHeight(18),                 // MenuItem: 18 default
-```
-
-#### Use Icon In Label
-
-Use the `asLabel()` method.  
-(Only available for `MenuGroup` and `MenuItem`)
-
-```php
-MenuGroup::make(__('Licensing'), [/**...**/])->asLabel(),
-MenuItem::resource(User::class)->asLabel(),
-```
-
-##### Controlling Gutters Between Icon And Label
-
-**Default**: 1 (0.25rem)
-
-| Method           | Gap      |
-|------------------|----------|
-| `->asLabel(0.5)` | 0.125rem |
-| `->asLabel(1.5)` | 0.375rem |
-| `->asLabel(2)`   | 0.5rem   |
-| `->asLabel(2.5)` | 0.625rem |
-| `->asLabel(3)`   | 0.75rem  |
-| `->asLabel(3.5)` | 0.875rem |
-| `->asLabel(4)`   | 1rem     |
-| `->asLabel(5)`   | 1.25rem  |
-| `->asLabel(6)`   | 1.5rem   |
-| `->asLabel(8)`   | 2rem     |
-
-```php
-MenuGroup::make(__('Licensing'), [/**...**/])->asLabel(2),
-MenuItem::resource(User::class)->asLabel(3.5),
-```
-
-#### Optional: Install Font Awesome
-
-If you don't have Font Awesome integrated in Nova, but want to use it, you can optionally install Font Awesome Free with this command.
-
-```
-php artisan nova-menu:font-awesome
-```
-
-#### Optional: Tailwind CSS Colors
-
-Install all Tailwind CSS [Text Color](https://tailwindcss.com/docs/text-color), [Border Color](https://tailwindcss.com/docs/border-color) and
-[Background Color](https://tailwindcss.com/docs/background-color) classes inclusive dark mode classes.
-
-**But note that with this file will be loaded 620KB more CSS!**
-
-```
-php artisan nova-menu:tailwind-colors
-```
-
-#### Add Classes To Element
-
-Use the `elemClasses()` method.
-
-```php
-MenuSection::make(__('Customers'), [/**...**/])->elemClasses('class-1 class-2'),
-MenuGroup::make(__('Licensing'), [/**...**/])->elemClasses('class-1 class-2'),
-MenuItem::resource(User::class)->elemClasses('class-1 class-2'),
-MenuSection::make(__('Customers'), [/**...**/])->elemClasses(['class-1', 'class-2']),
-MenuGroup::make(__('Licensing'), [/**...**/])->elemClasses(['class-1', 'class-2']),
-MenuItem::resource(User::class)->elemClasses(['class-1', 'class-2']),
-```
-
-#### Add Classes To Icon
-
-Use the `iconClasses()` method.
-
-```php
-MenuSection::make(__('Customers'), [/**...**/])->iconClasses('class-1 class-2'),
-MenuGroup::make(__('Licensing'), [/**...**/])->iconClasses('class-1 class-2'),
-MenuItem::resource(User::class)->iconClasses('class-1 class-2'),
-MenuSection::make(__('Customers'), [/**...**/])->iconClasses(['class-1', 'class-2']),
-MenuGroup::make(__('Licensing'), [/**...**/])->iconClasses(['class-1', 'class-2']),
-MenuItem::resource(User::class)->iconClasses(['class-1', 'class-2']),
-```
-
-#### Add Classes To Label
-
-Use the `labelClasses()` method.
-
-```php
-MenuSection::make(__('Customers'), [/**...**/])->labelClasses('class-1 class-2'),
-MenuGroup::make(__('Licensing'), [/**...**/])->labelClasses('class-1 class-2'),
-MenuItem::resource(User::class)->labelClasses('class-1 class-2'),
-MenuSection::make(__('Customers'), [/**...**/])->labelClasses(['class-1', 'class-2']),
-MenuGroup::make(__('Licensing'), [/**...**/])->labelClasses(['class-1', 'class-2']),
-MenuItem::resource(User::class)->labelClasses(['class-1', 'class-2']),
-```
-
 ---
 
-Todo: Mix for Font Awesome & Tailwind CSS
+### Deprecated Features
+
+* ~~This package brings back the policy authorization for MenuItem~~ Include since Nova 4.2.5
+* ~~Also, the well-known canSee method is added to MenuItem and MenuSection~~ Include since Nova 4.2.5
+* ~~Empty menu sections are automatically hidden~~ Include since Nova 4.6.0
 
 ---
 

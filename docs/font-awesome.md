@@ -3,16 +3,22 @@
 You can customize the Font Awesome icon displayed by invoking the `faIcon` method when defining the menu:
 
 ```php
-use NormanHuth\NovaMenu\MenuSection;
-use NormanHuth\NovaMenu\MenuGroup;
-use NormanHuth\NovaMenu\MenuItem;
+use NormanHuth\NovaMenu\MenuSection; // [tl! focus]
+use NormanHuth\NovaMenu\MenuGroup; // [tl! focus]
+use NormanHuth\NovaMenu\MenuItem; // [tl! focus]
 
-MenuSection::make(__('Customers'), [/**...**/])
-    ->faIcon('chart-bar'),
-MenuGroup::make(__('Licensing'), [/**...**/])
-    ->faIcon('chart-bar'),
-MenuItem::resource(User::class)
-    ->faIcon('chart-bar'),
+Nova::mainMenu(function (Request $request) {
+    return [
+        //..
+        MenuSection::make(__('Customers'), [] // [tl! focus]
+            ->faIcon('chart-bar'), // [tl! focus]
+        MenuGroup::make(__('Licensing'), []) // [tl! focus]
+            ->faIcon('chart-bar'), // [tl! focus]
+        MenuItem::resource(User::class) // [tl! focus]
+            ->faIcon('chart-bar'), // [tl! focus]
+        // ..
+    ]
+});
 ```
 
 ## Optional: Install Font Awesome

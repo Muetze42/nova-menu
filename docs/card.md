@@ -7,9 +7,15 @@ This package adds the possibility to display cards in the menu.
 You can create a new menu card by calling the `MenuCard::make` method.
 
 ```php
-use NormanHuth\NovaMenu\MenuCard;
+use NormanHuth\NovaMenu\MenuCard; // [tl! focus]
 
-MenuCard::make()
+Nova::mainMenu(function (Request $request) {
+    return [
+        //..
+        MenuCard::make(), // [tl! focus]
+        //..
+    ]
+});
 ```
 
 ### Set Content To A Card
@@ -19,10 +25,16 @@ MenuCard::make()
 You can set a string as content for a menu card by invoking the `content` method when defining the menu card:
 
 ```php
-use NormanHuth\NovaMenu\MenuCard;
+use NormanHuth\NovaMenu\MenuCard; // [tl! focus]
 
-MenuCard::make()
-    ->content('Norman Huth'),
+Nova::mainMenu(function (Request $request) {
+    return [
+        //..
+        MenuCard::make() // [tl! focus]
+            ->content('Norman Huth'), // [tl! focus]
+        //..
+    ]
+});
 ```
 
 #### Set Blade As Content
@@ -30,23 +42,35 @@ MenuCard::make()
 You can set a Blade template as content for a menu card by invoking the `view` method when defining the menu card:
 
 ```php
-use NormanHuth\NovaMenu\MenuCard;
+use NormanHuth\NovaMenu\MenuCard; // [tl! focus]
 
-MenuCard::make()
-    ->view('admin.news', ['name' => $request->user()->name])),
+Nova::mainMenu(function (Request $request) {
+    return [
+        //..
+        MenuCard::make() // [tl! focus]
+            ->view('admin.news', ['name' => $request->user()->name])), // [tl! focus]
+        //..
+    ]
+});
 ```
 
 ### Authorization
 
-You can hide certain fields from a group of users by invoking the `canSee` method when defining the menu card:
+You can hide a card from a group of users by invoking the `canSee` method when defining the menu card:
 
 ```php
-use NormanHuth\NovaMenu\MenuCard;
+use NormanHuth\NovaMenu\MenuCard; // [tl! focus]
 
-MenuCard::make()
-    ->canSee(function (Request $request) {
-        return str_ends_with($request->user()->email, '@huth.it');
-    }),
+Nova::mainMenu(function (Request $request) {
+    return [
+        //..
+        MenuCard::make() // [tl! focus]
+            ->canSee(function (Request $request) {// [tl! focus]
+                return str_ends_with($request->user()->email, '@huth.it');// [tl! focus]
+            }), // [tl! focus]
+        //..
+    ]
+});
 ```
 
 ### Customize And Theming
@@ -56,26 +80,38 @@ MenuCard::make()
 The static `make` method accept a theme argument. Valid themes are `info`, `success`, `warning` and `danger`.
 
 ```php
-use NormanHuth\NovaMenu\MenuCard;
+use NormanHuth\NovaMenu\MenuCard; // [tl! focus]
 
-MenuCard::make('info'),
+Nova::mainMenu(function (Request $request) {
+    return [
+        //..
+        MenuCard::make('info'), // [tl! focus]
+        //..
+    ]
+});
 ```
 
-### Border Radios
+### Border Radius
 
 You can add a border radius by invoking the `rounded` method when defining the menu card:
 
 ```php
-use NormanHuth\NovaMenu\MenuCard;
+use NormanHuth\NovaMenu\MenuCard; // [tl! focus]
 
-MenuCard::make('info')
-    ->rounded(),
-MenuCard::make('info')
-    ->rounded('sm'),
-MenuCard::make('info')
-    ->rounded('md'),
-MenuCard::make('info')
-    ->rounded('lg'),
+Nova::mainMenu(function (Request $request) {
+    return [
+        //..
+        MenuCard::make('info') // [tl! focus]
+            ->rounded(), // [tl! focus]
+        MenuCard::make('info') // [tl! focus]
+            ->rounded('sm'), // [tl! focus]
+        MenuCard::make('info') // [tl! focus]
+            ->rounded('md'), // [tl! focus]
+        MenuCard::make('info') // [tl! focus]
+            ->rounded('lg'), // [tl! focus]
+        //..
+    ]
+});
 ```
 
 ### Add Classes
@@ -83,10 +119,16 @@ MenuCard::make('info')
 You can add classes to the menu card class attribute by invoking the `addClasses` method when defining the menu card:
 
 ```php
-use NormanHuth\NovaMenu\MenuCard;
+use NormanHuth\NovaMenu\MenuCard; // [tl! focus]
 
-MenuCard::make()
-    ->addClasses(['text-center', 'text-white']),
+Nova::mainMenu(function (Request $request) {
+    return [
+        //..
+        MenuCard::make('info') // [tl! focus]
+            ->addClasses(['text-center', 'text-white']), // [tl! focus]
+        //..
+    ]
+});
 ```
 
 ### Add Styles
@@ -94,13 +136,19 @@ MenuCard::make()
 You can add styles to the menu card style attribute by invoking the `addStyles` method when defining the menu card:
 
 ```php
-use NormanHuth\NovaMenu\MenuCard;
+use NormanHuth\NovaMenu\MenuCard; // [tl! focus]
 
-MenuCard::make()
-    ->addStyles([
-        'color' => 'white',
-        'text-align' => 'center',
-    ]),
+Nova::mainMenu(function (Request $request) {
+    return [
+        //..
+        MenuCard::make('info') // [tl! focus]
+            ->addStyles([ // [tl! focus]
+                'color' => 'white', // [tl! focus]
+                'text-align' => 'center', // [tl! focus]
+            ]), // [tl! focus]
+        //..
+    ]
+});
 ```
 
 ### Add `MenuItem` Spacing
@@ -108,8 +156,14 @@ MenuCard::make()
 You can add the same left margin spacing like a `MenuItem` by invoking the `asItem` method when defining the menu card:
 
 ```php
-use NormanHuth\NovaMenu\MenuCard;
+use NormanHuth\NovaMenu\MenuCard; // [tl! focus]
 
-MenuCard::make()
-    ->asItem(),
+Nova::mainMenu(function (Request $request) {
+    return [
+        //..
+        MenuCard::make('info') // [tl! focus]
+            ->asItem(), // [tl! focus]
+        //..
+    ]
+});
 ```

@@ -54,6 +54,9 @@ export default {
                 })
             }
         },
+        mainMenu(newValue, oldValue) {
+            this.filteredMainMenu = this.mainMenu
+        }
     },
 
     computed: {

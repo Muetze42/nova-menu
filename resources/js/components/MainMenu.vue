@@ -5,7 +5,7 @@
         dusk="sidebar-menu"
         role="navigation"
     >
-        <div>
+        <div class="menu-search">
             <input type="search" v-model="menuFilter">
         </div>
         <component
@@ -14,7 +14,6 @@
             v-for="(item, index) in filteredMainMenu"
             :item="item"
         />
-<!-- Todo: Missing Section after sections & items should come back :( -->
     </div>
 </template>
 
@@ -31,26 +30,37 @@ export default {
         }
     },
 
+    mounted() {
+        console.log(this.$page.props)
+    },
+
     watch: {
-        menuFilter(newValue, oldValue) {
+        menuFilter(newValue) {
             let search = newValue.toLowerCase()
             this.filteredMainMenu = this.mainMenu
-            console.log(this.filteredMainMenu)
 
             if (search.length > 0) {
-                console.log(this.filteredMainMenu)
                 this.filteredMainMenu = this.filteredMainMenu.filter(function (item) {
-                    if (item.name.toLowerCase().includes(search)) {
+                    if (item.name && item.name.toLowerCase().includes(search)) {
+                        return true
+                    }
+
+                    if (item.content && item.content.toLowerCase().includes(search)) {
                         return true
                     }
 
                     if (item.items && item.items.length) {
-                        item.items = item.items.filter(function (item) {
-                            return item.name.toLowerCase().includes(search);
-                        })
+                        for (let child of item.items) {
+                            if (child.name && child.name.toLowerCase().includes(search)) {
+                                return true
+                            }
+                            if (child.content && child.content.toLowerCase().includes(search)) {
+                                return true
+                            }
+                        }
                     }
 
-                    return item.items && item.items.length
+                    return false
                 })
             }
         },

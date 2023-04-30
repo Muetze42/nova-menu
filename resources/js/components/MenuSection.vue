@@ -75,7 +75,7 @@
             </span>
         </h3>
 
-        <template v-if="!collapsed">
+        <template v-if="!collapsed && !item.iframe.target">
             <div class="mt-1 space-y-1">
                 <component
                     :is="item.component"

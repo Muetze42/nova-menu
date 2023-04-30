@@ -80,7 +80,6 @@
                 <component
                     :is="item.component"
                     v-for="item in item.items"
-                    :key="item.name"
                     :item="item"
                 />
             </div>

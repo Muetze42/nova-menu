@@ -4,8 +4,8 @@
             :is="component"
             v-bind="linkAttributes"
             class="sidebar-item-title relative"
-            :class="[{ 'inertia-link-active': item.active }, item.icons.classes.elem]"
-            @click="handleClick"
+            :class="[{ 'inertia-link-active': item.active }, { 'cursor-pointer menu-iframe-item': item.iframe.target }, item.icons.classes.elem]"
+            @click="item.iframe.target ? open = true : handleClick"
             v-tooltip.click="item.tooltip"
         >
             <span class="sidebar-item-icon flex items-center">
@@ -23,6 +23,9 @@
             </span>
         </component>
     </div>
+    <div :class="item.iframe.wrapper.classes" :style="item.iframe.wrapper.styles" @click="open = false" v-if="open">
+        <iframe :class="item.iframe.iframe.classes" :style="item.iframe.iframe.styles" :src="item.iframe.target"></iframe>
+    </div>
 </template>
 
 <script>
@@ -39,6 +42,17 @@ export default {
             type: Object,
             required: true,
         },
+    },
+    data() {
+        return {
+            open: false
+        };
+    },
+    watch: {
+        open(isOpen) {
+            let body = document.querySelector('body')
+            body.style.overflow = isOpen ? 'hidden' : 'visible'
+        }
     },
     methods: {
         ...mapMutations(['toggleMainMenu']),
@@ -59,7 +73,7 @@ export default {
         component() {
             if (this.requestMethod !== 'GET') {
                 return 'FormButton'
-            } else if (this.item.external !== true) {
+            } else if (!this.item.iframe.target && this.item.external !== true) {
                 return 'Link'
             }
 
@@ -72,11 +86,11 @@ export default {
             return pickBy(
                 omitBy(
                     {
-                        href: this.item.path,
+                        href: !this.item.iframe.target ? this.item.path : null,
                         method: method !== 'GET' ? method : null,
                         headers: this.item.headers || null,
                         data: this.item.data || null,
-                        rel: this.component === 'a' ? 'noreferrer noopener' : null,
+                        rel: !this.item.iframe.target && this.component === 'a' ? 'noreferrer noopener' : null,
                         target: this.item.target || null,
                     },
                     isNull

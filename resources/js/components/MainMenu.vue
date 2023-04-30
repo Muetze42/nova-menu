@@ -65,6 +65,7 @@ export default {
             }
         },
         mainMenu(newValue, oldValue) {
+            console.log(this.mainMenu)
             this.filteredMainMenu = this.mainMenu
         }
     },

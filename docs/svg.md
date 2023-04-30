@@ -19,7 +19,7 @@ Nova::mainMenu(function (Request $request) {
         MenuItem::resource(User::class) // [tl! focus]
             ->svgIcon('<svg xmlns="...'), // [tl! focus]
         // ..
-    ]
+    ];
 });
 ```
 
@@ -40,6 +40,6 @@ Nova::mainMenu(function (Request $request) {
         MenuItem::resource(User::class) // [tl! focus]
             ->svgIcon(resource_path('icon.svg')), // [tl! focus]
         // ..
-    ]
+    ];
 });
 ```

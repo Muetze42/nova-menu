@@ -2,7 +2,7 @@ import MenuSection from './components/MenuSection'
 import MenuGroup from './components/MenuGroup'
 import MenuItem from './components/MenuItem'
 import MenuCard from './components/MenuCard'
-//import MainMenu from './components/MainMenu'
+// import MainMenu from './components/MainMenu'
 import Icon from './components/Icon'
 
 Nova.booting((app, store) => {

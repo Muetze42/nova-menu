@@ -57,7 +57,13 @@
             <CollapseButton :collapsed="collapsed" :to="item.path" class="ml-auto" />
         </button>
 
-        <h3 v-else class="sidebar-section-title" :class="item.icons.classes.elem" v-tooltip.click="item.tooltip">
+        <h3
+            v-else
+            class="sidebar-section-title"
+            :class="[item.icons.classes.elem, { 'cursor-pointer menu-iframe-section': item.iframe.target }]"
+            v-tooltip.click="item.tooltip"
+            @click="item.iframe.target ? open = true : null"
+        >
             <span class="sidebar-label">
                 <span class="sidebar-icon">
                     <NHMenuIcon :icons="item.icons" />
@@ -80,6 +86,9 @@
             </div>
         </template>
     </div>
+    <div :class="item.iframe.wrapper.classes" :style="item.iframe.wrapper.styles" @click="open = false" v-if="open">
+        <iframe :class="item.iframe.iframe.classes" :style="item.iframe.iframe.styles" :src="item.iframe.target"></iframe>
+    </div>
 </template>
 
 <script>
@@ -90,6 +99,11 @@ export default {
     name: "MenuSection",
     mixins: [Collapsable],
     props: ['item'],
+    data() {
+        return {
+            open: false
+        };
+    },
     methods: {
         ...mapMutations(['toggleMainMenu']),
 
@@ -98,6 +112,12 @@ export default {
                 this.toggleMainMenu()
             }
         },
+    },
+    watch: {
+        open(isOpen) {
+            let body = document.querySelector('body')
+            body.style.overflow = isOpen ? 'hidden' : 'visible'
+        }
     },
     computed: {
         ...mapGetters(['mainMenuShown']),

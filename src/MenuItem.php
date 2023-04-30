@@ -9,6 +9,7 @@ class MenuItem extends Item
     use IconTrait;
     use LabelTrait;
     use TooltipTrait;
+    use IframeTrait;
 
     /**
      * Prepare the menu for JSON serialization.
@@ -30,7 +31,8 @@ class MenuItem extends Item
                     ]
                 ),
                 'tooltip' => $this->tooltip,
-                'component' => 'menu-item-norman-huth'
+                'component' => 'menu-item-norman-huth',
+                'iframe' => $this->iframe
             ],
         );
     }

@@ -73,7 +73,7 @@ Nova::mainMenu(function (Request $request) {
         MenuGroup::make(__('Licensing'), [])->iconHeight(18),   // MenuGroup: 18 default [tl! focus]
         MenuItem::resource(User::class)->iconHeight(18),                 // MenuItem: 18 default [tl! focus]
         // ..
-    ]
+    ];
 });
 ```
 
@@ -104,7 +104,7 @@ Nova::mainMenu(function (Request $request) {
         MenuItem::resource(User::class)
             ->elemClasses('class-1 class-2'),
         //..
-    ]
+    ];
 });
 ```
 
@@ -135,7 +135,7 @@ Nova::mainMenu(function (Request $request) {
         MenuItem::resource(User::class)
             ->iconClasses('class-1 class-2'),
         // ..
-    ]
+    ];
 });
 ```
 
@@ -166,7 +166,7 @@ Nova::mainMenu(function (Request $request) {
         MenuItem::resource(User::class)
             ->labelClasses('class-1 class-2'),
         // ..
-    ]
+    ];
 });
 ```
 

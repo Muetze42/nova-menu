@@ -2,16 +2,16 @@
 
 This package add following features to the [Laravel Nova menu](https://nova.laravel.com/docs/4.0/customization/menus.html):
 
-* Heroicon, Font Awesome, SVG & Image Icon for MenuSection, MenuGroup & MenuItem
+* Heroicon, Font Awesome, SVG & Image Icon for `MenuSection`, `MenuGroup` & `MenuItem`
 * Add new item `MenuCard`
-* Add `tooltip()` method to MenuSection, MenuGroup, MenuItem & MenuCard (undocumented)
+* Add new method `iframe` to create an iframe popup
+* Add `tooltip()` method to `MenuSection`, `MenuGroup`, `MenuItem` & `MenuCard` (undocumented)
 
-For more informationen read the [Documentation](https://docs.huth.it/nova-menu).
+[![Documentation](https://raw.githubusercontent.com/Muetze42/Muetze42/main/files/btn-documentation.jpg)](https://docs.huth.it/nova-menu)
+[![Live Preview](https://raw.githubusercontent.com/Muetze42/Muetze42/main/files/btn-live-preview.jpg)](https://nova-demo.huth.it)
 
-![Preview Dark Mode](https://github.com/Muetze42/nova-menu/blob/main/docs/preview-dark-mode.png)
-![Preview Light Mode](https://github.com/Muetze42/nova-menu/blob/main/docs/preview-light-mode.png)
-
-Examples from [example-app-nvpRt7](https://github.com/Muetze42/example-app-nvpRt7)
+![Preview Dark Mode](https://raw.githubusercontent.com/Muetze42/nova-menu/main/docs/preview-dark-mode.png)
+![Preview Light Mode](https://raw.githubusercontent.com/Muetze42/nova-menu/main/docs/preview-light-mode.png)
 
 ---
 

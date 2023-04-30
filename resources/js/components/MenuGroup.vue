@@ -46,7 +46,6 @@
 
         <template v-if="!collapsed && !item.iframe.target">
             <component
-                :key="item.name"
                 v-for="item in item.items"
                 :is="item.component"
                 :item="item"

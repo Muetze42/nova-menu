@@ -9,6 +9,7 @@ class MenuGroup extends Group
     use IconTrait;
     use LabelTrait;
     use TooltipTrait;
+    use IframeTrait;
 
     /**
      * Prepare the menu for JSON serialization.
@@ -29,8 +30,10 @@ class MenuGroup extends Group
                         'classes' => $this->classes,
                     ]
                 ),
+                'collapsable' => !$this->iframe['target'] ? $this->collapsable : false,
                 'tooltip' => $this->tooltip,
-                'component' => 'menu-group-norman-huth'
+                'component' => 'menu-group-norman-huth',
+                'iframe' => $this->iframe,
             ],
         );
     }

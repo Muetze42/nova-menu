@@ -25,7 +25,13 @@
                 />
             </h4>
         </button>
-        <h4 v-else class="sidebar-group-title" :class="item.icons.classes.elem" v-tooltip.click="item.tooltip">
+        <h4
+            v-else
+            class="sidebar-group-title"
+            :class="[item.icons.classes.elem, { 'cursor-pointer menu-iframe-group': item.iframe.target }]"
+            v-tooltip.click="item.tooltip"
+            @click="item.iframe.target ? open = true : null"
+        >
             <span class="sidebar-group-icon">
                 <NHMenuIcon :icons="item.icons" v-if="!item.icons.asLabel" />
             </span>
@@ -38,7 +44,7 @@
             </span>
         </h4>
 
-        <template v-if="!collapsed">
+        <template v-if="!collapsed && !item.iframe.target">
             <component
                 :key="item.name"
                 v-for="item in item.items"
@@ -46,6 +52,9 @@
                 :item="item"
             />
         </template>
+    </div>
+    <div :class="item.iframe.wrapper.classes" :style="item.iframe.wrapper.styles" @click="open = false" v-if="open">
+        <iframe :class="item.iframe.iframe.classes" :style="item.iframe.iframe.styles" :src="item.iframe.target"></iframe>
     </div>
 </template>
 
@@ -60,6 +69,17 @@ export default {
         handleClick() {
             this.toggleCollapse()
         },
+    },
+    data() {
+        return {
+            open: false
+        };
+    },
+    watch: {
+        open(isOpen) {
+            let body = document.querySelector('body')
+            body.style.overflow = isOpen ? 'hidden' : 'visible'
+        }
     },
     computed: {
         collapsedByDefault() {

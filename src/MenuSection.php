@@ -8,6 +8,7 @@ class MenuSection extends Section
 {
     use IconTrait;
     use TooltipTrait;
+    use IframeTrait;
 
     /**
      * The icon height in pixel.
@@ -30,8 +31,10 @@ class MenuSection extends Section
                     'height' => $this->iconHeight,
                     'classes' => $this->classes,
                 ]),
+                'collapsable' => !$this->iframe['target'] ? $this->collapsable : false,
                 'tooltip' => $this->tooltip,
-                'component' => 'menu-section-norman-huth'
+                'component' => 'menu-section-norman-huth',
+                'iframe' => $this->iframe
             ],
         );
     }

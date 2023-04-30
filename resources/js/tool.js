@@ -2,6 +2,7 @@ import MenuSection from './components/MenuSection'
 import MenuGroup from './components/MenuGroup'
 import MenuItem from './components/MenuItem'
 import MenuCard from './components/MenuCard'
+// import MainMenu from './components/MainMenu'
 import Icon from './components/Icon'
 
 Nova.booting((app, store) => {
@@ -10,4 +11,5 @@ Nova.booting((app, store) => {
     app.component('menu-group-norman-huth', MenuGroup)
     app.component('menu-item-norman-huth', MenuItem)
     app.component('menu-card-norman-huth', MenuCard)
+    // app.component('MainMenu', MainMenu)
 })

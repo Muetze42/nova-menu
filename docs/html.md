@@ -16,6 +16,6 @@ Nova::mainMenu(function (Request $request) {
            ->htmlIcon('YOUR-HTML-CODE'), // [tl! focus]
         MenuItem::resource(User::class) // [tl! focus]
            ->htmlIcon('YOUR-HTML-CODE'), // [tl! focus]
-    ]
+    ];
 });
 ```

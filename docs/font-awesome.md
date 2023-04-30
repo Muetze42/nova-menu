@@ -17,7 +17,7 @@ Nova::mainMenu(function (Request $request) {
         MenuItem::resource(User::class) // [tl! focus]
             ->faIcon('chart-bar'), // [tl! focus]
         // ..
-    ]
+    ];
 });
 ```
 

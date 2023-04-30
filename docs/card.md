@@ -14,7 +14,7 @@ Nova::mainMenu(function (Request $request) {
         //..
         MenuCard::make(), // [tl! focus]
         //..
-    ]
+    ];
 });
 ```
 
@@ -33,7 +33,7 @@ Nova::mainMenu(function (Request $request) {
         MenuCard::make() // [tl! focus]
             ->content('Norman Huth'), // [tl! focus]
         //..
-    ]
+    ];
 });
 ```
 
@@ -50,7 +50,7 @@ Nova::mainMenu(function (Request $request) {
         MenuCard::make() // [tl! focus]
             ->view('admin.news', ['name' => $request->user()->name])), // [tl! focus]
         //..
-    ]
+    ];
 });
 ```
 
@@ -69,7 +69,7 @@ Nova::mainMenu(function (Request $request) {
                 return str_ends_with($request->user()->email, '@huth.it');// [tl! focus]
             }), // [tl! focus]
         //..
-    ]
+    ];
 });
 ```
 
@@ -87,7 +87,7 @@ Nova::mainMenu(function (Request $request) {
         //..
         MenuCard::make('info'), // [tl! focus]
         //..
-    ]
+    ];
 });
 ```
 
@@ -110,7 +110,7 @@ Nova::mainMenu(function (Request $request) {
         MenuCard::make('info') // [tl! focus]
             ->rounded('lg'), // [tl! focus]
         //..
-    ]
+    ];
 });
 ```
 
@@ -127,7 +127,7 @@ Nova::mainMenu(function (Request $request) {
         MenuCard::make('info') // [tl! focus]
             ->addClasses(['text-center', 'text-white']), // [tl! focus]
         //..
-    ]
+    ];
 });
 ```
 
@@ -147,7 +147,7 @@ Nova::mainMenu(function (Request $request) {
                 'text-align' => 'center', // [tl! focus]
             ]), // [tl! focus]
         //..
-    ]
+    ];
 });
 ```
 
@@ -164,6 +164,6 @@ Nova::mainMenu(function (Request $request) {
         MenuCard::make('info') // [tl! focus]
             ->asItem(), // [tl! focus]
         //..
-    ]
+    ];
 });
 ```

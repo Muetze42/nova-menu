@@ -12,7 +12,7 @@
             v-if="filteredMainMenu.length"
             :key="item.key"
             :is="item.component"
-            v-for="(item, index) in filteredMainMenu"
+            v-for="(item, index) in this.filteredMainMenu"
             :item="item"
         />
         <div v-else class="text-center italic menu-filter-empty-text">
@@ -65,7 +65,7 @@ export default {
     },
     watch: {
         menuFilter(newValue) {
-            let search = newValue.toLowerCase()
+            let search = newValue.toLowerCase().trim()
 
             if (!search.length) {
                 this.filteredMainMenu = this.mainMenu

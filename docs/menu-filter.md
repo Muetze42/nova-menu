@@ -22,6 +22,32 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         MenuFilter::activate('top');  // [tl! focus]
 ```
 
+## Add Keywords To A Element
+
+You can add keywords to a menu element for the filter by invoking the `addKeywords` method when defining a menu element:
+
+```php
+use NormanHuth\NovaMenu\MenuSection; // [tl! focus]
+use NormanHuth\NovaMenu\MenuGroup; // [tl! focus]
+use NormanHuth\NovaMenu\MenuItem; // [tl! focus]
+use NormanHuth\NovaMenu\MenuCard; // [tl! focus]
+
+Nova::mainMenu(function (Request $request) {
+    return [
+        //..
+        MenuSection::make(__('Customers'), []) // [tl! focus]
+            ->addKeywords(['Nature', 'Ocean']), // [tl! focus]
+        MenuGroup::make(__('Licensing'), []) // [tl! focus]
+            ->addKeywords(['Nature', 'Ocean']), // [tl! focus]
+        MenuItem::resource(User::class) // [tl! focus]
+            ->addKeywords(['Nature', 'Ocean']), // [tl! focus]
+        MenuCard::make('info') // [tl! focus]
+            ->addKeywords(['Nature', 'Ocean']), // [tl! focus]
+        // ..
+    ];
+});
+```
+
 ## Change Placeholder
 
 You can change the default placeholder by invoking the `placeholder` when activate filter.  

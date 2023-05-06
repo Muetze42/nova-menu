@@ -17,7 +17,6 @@ class ToolServiceProvider extends ServiceProvider
     {
         Nova::serving(function (ServingNova $event) {
             Nova::script('norman-huth-menu', __DIR__.'/../dist/js/tool.js');
-            Nova::style('norman-huth-menu', __DIR__.'/../dist/css/tool.css');
         });
 
         if ($this->app->runningInConsole()) {

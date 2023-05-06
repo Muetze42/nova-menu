@@ -1,5 +1,5 @@
 <template>
-    <div class="sidebar-section" v-if="item.path || item.items.length > 0">
+    <div class="sidebar-section" :class="item.classes" v-if="item.path || item.items.length > 0">
         <!-- Section title with link -->
         <Link
             v-if="item.path"
@@ -80,6 +80,7 @@
                 <component
                     :is="item.component"
                     v-for="item in item.items"
+                    :key="item.name"
                     :item="item"
                 />
             </div>

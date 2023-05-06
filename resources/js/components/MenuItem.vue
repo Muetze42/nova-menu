@@ -1,5 +1,5 @@
 <template>
-    <div class="sidebar-item">
+    <div class="sidebar-item" :class="item.classes">
         <component
             :is="component"
             v-bind="linkAttributes"

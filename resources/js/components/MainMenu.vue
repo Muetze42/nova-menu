@@ -6,20 +6,18 @@
         role="navigation"
     >
         <div class="menu-filter menu-filter-top" v-if="$page.props.menuAdvPosition && ['top', 'both'].includes($page.props.menuAdvPosition)">
-            <input type="search" v-model="menuFilter" class="w-full form-control form-input form-input-bordered menu-filter-input" :placeholder="$page.props.menuAdvPlaceholder ? $page.props.menuAdvPlaceholder : __('Filter')">
+            <input type="search" v-model="menuFilter" class="w-full form-control form-input form-input-bordered menu-filter-input"
+                   :placeholder="$page.props.menuAdvPlaceholder ? $page.props.menuAdvPlaceholder : __('Filter')">
         </div>
         <component
-            v-if="filteredMainMenu.length"
             :key="item.key"
             :is="item.component"
-            v-for="(item, index) in this.filteredMainMenu"
+            v-for="(item, index) in mainMenu"
             :item="item"
         />
-        <div v-else class="text-center italic menu-filter-empty-text">
-            {{ $page.props.menuAdvEmptyText ? $page.props.menuAdvEmptyText : __('No :resource matched the given criteria.', {resource: __('menu entry')}) }}
-        </div>
-        <div class="menu-filter menu-filter-top" v-if="$page.props.menuAdvPosition && ['bottom', 'both'].includes($page.props.menuAdvPosition)">
-            <input type="search" v-model="menuFilter" class="w-full form-control form-input form-input-bordered menu-filter-input" :placeholder="$page.props.menuAdvPlaceholder ? $page.props.menuAdvPlaceholder : __('Filter')">
+        <div class="menu-filter menu-filter-bottom" v-if="$page.props.menuAdvPosition && ['top', 'both'].includes($page.props.menuAdvPosition)">
+            <input type="search" v-model="menuFilter" class="w-full form-control form-input form-input-bordered menu-filter-input"
+                   :placeholder="$page.props.menuAdvPlaceholder ? $page.props.menuAdvPlaceholder : __('Filter')">
         </div>
     </div>
 </template>
@@ -29,63 +27,40 @@ import {mapGetters} from 'vuex'
 
 export default {
     name: 'MainMenu',
+
     data() {
         return {
             menuFilter: null,
-            search: null,
-            filteredMainMenu: null,
+            hiddenClass: ' hidden',
         }
     },
+
     methods: {
-        filterItem(item, search) {
-            if (item.name && item.name.toLowerCase().includes(search)) {
-                return item
-            }
-            if (item.content && item.content.toLowerCase().includes(search)) {
-                return item
-            }
-
-            if (item.items && item.items.length) {
-                let items = []
-                for (let child of item.items) {
-                    let childItem = this.filterItem(child, search)
-                    if (childItem) {
-                        items.push(childItem)
-                    }
-                }
-                if (items.length) {
-                    item.items = items
-
-                    return item
-                }
-            }
-
-            return null
+        filterItem(item, search, parentId) {
+            return search.length
         }
     },
+
     watch: {
         menuFilter(newValue) {
             let search = newValue.toLowerCase().trim()
 
-            if (!search.length) {
-                this.filteredMainMenu = this.mainMenu
-                return
-            }
+            // console.log(this.mainMenu)
+            this.mainMenu.forEach((item, index) => {
+                let hide = this.filterItem(item, search, index)
 
-            let newMenu = [];
+                console.log(hide)
 
-            for (const [key, value] of Object.entries(this.mainMenu)) {
-                let item = this.filterItem(value, search)
-                if (item) {
-                    newMenu.push(value)
+                if (hide && !this.mainMenu[index].classes.includes(this.hiddenClass)) {
+                    this.mainMenu[index].classes = this.mainMenu[index].classes + this.hiddenClass
                 }
-            }
-            this.filteredMainMenu = newMenu
-        },
-        mainMenu() {
-            this.filteredMainMenu = this.mainMenu
+                if (!hide) {
+                    this.mainMenu[index].classes = this.mainMenu[index].classes.replace(this.hiddenClass, '')
+                }
+            })
         }
     },
+
     computed: {
         ...mapGetters(['mainMenu']),
 

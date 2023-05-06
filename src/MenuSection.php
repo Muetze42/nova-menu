@@ -34,7 +34,8 @@ class MenuSection extends Section
                 'collapsable' => !$this->iframe['target'] ? $this->collapsable : false,
                 'tooltip' => $this->tooltip,
                 'component' => 'menu-section-norman-huth',
-                'iframe' => $this->iframe
+                'iframe' => $this->iframe,
+                'classes' => '',
             ],
         );
     }

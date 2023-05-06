@@ -208,7 +208,7 @@ class MenuCard implements JsonSerializable
             'section' => $this->section,
             'content' => $this->content,
             'tooltip' => $this->tooltip,
-            'classes' => $this->classes,
+            'classes' => implode(' ', $this->classes),
             'styles' => $this->styles,
         ];
     }

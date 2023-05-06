@@ -34,6 +34,7 @@ class MenuGroup extends Group
                 'tooltip' => $this->tooltip,
                 'component' => 'menu-group-norman-huth',
                 'iframe' => $this->iframe,
+                'classes' => '',
             ],
         );
     }

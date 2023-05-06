@@ -13,7 +13,7 @@ This package add following features to the [Laravel Nova menu](https://nova.lara
 
 ---
 
-![Preview Dark Mode](https://raw.githubusercontent.com/Muetze42/nova-menu/main/docs/preview-dark.png) 
+![Preview Dark Mode](https://raw.githubusercontent.com/Muetze42/nova-menu/main/docs/preview-dark.png)
 ![Preview Light Mode](https://raw.githubusercontent.com/Muetze42/nova-menu/main/docs/preview-light.png)
 
 ---

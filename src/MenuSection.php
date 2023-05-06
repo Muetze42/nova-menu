@@ -9,6 +9,7 @@ class MenuSection extends Section
     use IconTrait;
     use TooltipTrait;
     use IframeTrait;
+    use FilterTrait;
 
     /**
      * The icon height in pixel.
@@ -36,6 +37,7 @@ class MenuSection extends Section
                 'component' => 'menu-section-norman-huth',
                 'iframe' => $this->iframe,
                 'classes' => '',
+                'keywords' => $this->keywords,
             ],
         );
     }

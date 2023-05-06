@@ -6,10 +6,12 @@ This package add following features to the [Laravel Nova menu](https://nova.lara
 * Add new item `MenuCard`
 * Add new method `iframe` to create an iframe popup
 * Add `tooltip()` method to `MenuSection`, `MenuGroup`, `MenuItem` & `MenuCard` (undocumented)
-<!-- * Add optional menu filter to search menu elements -->
+* Add optional menu filter to search menu elements
 
 [![Documentation](https://raw.githubusercontent.com/Muetze42/Muetze42/main/files/btn-documentation.jpg)](https://docs.huth.it/nova-menu)
 [![Live Preview](https://raw.githubusercontent.com/Muetze42/Muetze42/main/files/btn-live-preview.jpg)](https://nova-demo.huth.it)
+
+---
 
 ![Preview Dark Mode](https://raw.githubusercontent.com/Muetze42/nova-menu/main/docs/preview-dark-mode.png)
 ![Preview Light Mode](https://raw.githubusercontent.com/Muetze42/nova-menu/main/docs/preview-light-mode.png)

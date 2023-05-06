@@ -10,6 +10,7 @@ class MenuGroup extends Group
     use LabelTrait;
     use TooltipTrait;
     use IframeTrait;
+    use FilterTrait;
 
     /**
      * Prepare the menu for JSON serialization.
@@ -35,6 +36,7 @@ class MenuGroup extends Group
                 'component' => 'menu-group-norman-huth',
                 'iframe' => $this->iframe,
                 'classes' => '',
+                'keywords' => $this->keywords,
             ],
         );
     }

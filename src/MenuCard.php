@@ -11,6 +11,7 @@ class MenuCard implements JsonSerializable
 {
     use AuthorizedToSee;
     use TooltipTrait;
+    use FilterTrait;
 
     /**
      * The menu's component.
@@ -210,6 +211,7 @@ class MenuCard implements JsonSerializable
             'tooltip' => $this->tooltip,
             'classes' => implode(' ', $this->classes),
             'styles' => $this->styles,
+            'keywords' => $this->keywords,
         ];
     }
 }

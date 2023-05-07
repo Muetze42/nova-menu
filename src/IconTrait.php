@@ -27,6 +27,7 @@ trait IconTrait
         'elem'  => '',
         'icon'  => '',
         'label' => '',
+        'filterClass' => '',
     ];
 
     /**

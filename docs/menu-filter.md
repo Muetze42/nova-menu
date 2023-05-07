@@ -22,7 +22,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         MenuFilter::activate('top');  // [tl! focus]
 ```
 
-## Add Keywords To A Element
+## Optional: Add Keywords To A Element
 
 You can add keywords to a menu element for the filter by invoking the `addKeywords` method when defining a menu element:
 
@@ -91,4 +91,37 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         parent::boot();
         MenuFilter::activate('top')  // [tl! focus]
             ->emptyText(__('No items found'));  // [tl! focus]
+```
+
+## Change Filter Stylesheet Class
+
+<div class="alert alert-warning">
+
+This feature is available from version 1.6.5.
+</div>
+
+By default, the stylesheet classes hidden is used for filtering.  
+You can change this by invoking the `setFilterClass` when activate filter.  
+
+
+```php
+use NormanHuth\NovaMenu\MenuSection; // [tl! focus]
+use NormanHuth\NovaMenu\MenuGroup; // [tl! focus]
+use NormanHuth\NovaMenu\MenuItem; // [tl! focus]
+use NormanHuth\NovaMenu\MenuCard; // [tl! focus]
+
+Nova::mainMenu(function (Request $request) {
+    return [
+        //..
+        MenuSection::make(__('Customers'), []) // [tl! focus]
+            ->setFilterClass('display-none'), // [tl! focus]
+        MenuGroup::make(__('Licensing'), []) // [tl! focus]
+            ->setFilterClass('display-none'), // [tl! focus]
+        MenuItem::resource(User::class) // [tl! focus]
+            ->setFilterClass('display-none'), // [tl! focus]
+        MenuCard::make('info') // [tl! focus]
+            ->setFilterClass('display-none'), // [tl! focus]
+        // ..
+    ];
+});
 ```

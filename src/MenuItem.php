@@ -34,8 +34,9 @@ class MenuItem extends Item
                 'tooltip' => $this->tooltip,
                 'component' => 'menu-item-norman-huth',
                 'iframe' => $this->iframe,
-                'classes' => '',
+                'classes' => $this->classes,
                 'keywords' => $this->keywords,
+                'filterClass' => $this->filterClass,
             ],
         );
     }

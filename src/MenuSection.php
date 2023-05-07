@@ -36,8 +36,9 @@ class MenuSection extends Section
                 'tooltip' => $this->tooltip,
                 'component' => 'menu-section-norman-huth',
                 'iframe' => $this->iframe,
-                'classes' => '',
+                'classes' => $this->classes,
                 'keywords' => $this->keywords,
+                'filterClass' => $this->filterClass,
             ],
         );
     }

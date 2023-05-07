@@ -39,7 +39,10 @@ class MenuCard implements JsonSerializable
      *
      * @var array
      */
-    protected array $classes = [];
+    protected array $classes = [
+        'filterClass' => '',
+        'card' => [],
+    ];
 
     /**
      * The menu card's styles.
@@ -179,7 +182,7 @@ class MenuCard implements JsonSerializable
      */
     public function addClasses(string|array $classes): static
     {
-        $this->classes = array_merge($this->classes, (array) $classes);
+        $this->classes['card'] = array_merge($this->classes['card'], (array) $classes);
 
         return $this;
     }
@@ -209,9 +212,10 @@ class MenuCard implements JsonSerializable
             'section' => $this->section,
             'content' => $this->content,
             'tooltip' => $this->tooltip,
-            'classes' => implode(' ', $this->classes),
+            'classes' => $this->classes,
             'styles' => $this->styles,
             'keywords' => $this->keywords,
+            'filterClass' => $this->filterClass,
         ];
     }
 }

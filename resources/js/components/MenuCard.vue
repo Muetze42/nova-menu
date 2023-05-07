@@ -1,6 +1,6 @@
 <template>
     <div
-        :class="[item.classes, 'sidebar-'+item.section+'-card']" class="sidebar-card"
+        :class="[item.classes.filterClass, item.classes.card, 'sidebar-'+item.section+'-card']" class="sidebar-card"
         :style="item.styles"
         v-html="item.content"
         v-tooltip.click="item.tooltip"

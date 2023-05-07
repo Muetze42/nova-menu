@@ -1,5 +1,5 @@
 <template>
-    <div class="sidebar-group" :class="item.classes" v-if="item.items.length > 0">
+    <div class="sidebar-group" :class="item.classes.filterClass" v-if="item.items.length > 0">
         <button
             v-if="item.collapsable"
             @click="handleClick"

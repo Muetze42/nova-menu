@@ -96,12 +96,12 @@ export default {
                 })
             }
 
-            if (!show && hide && !item.classes.includes(this.hiddenClass)) {
-                item.classes = item.classes + this.hiddenClass
+            if (!show && hide) {
+                item.classes.filterClass = item.filterClass
             }
             if (!hide || show) {
                 this.showItems = true
-                item.classes = item.classes.replace(this.hiddenClass, '')
+                item.classes.filterClass = ''
             }
 
             return hide

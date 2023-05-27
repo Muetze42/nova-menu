@@ -15,7 +15,7 @@
     "require": {
         "php": "^8.0",
         "laravel/nova": "^4.12.13",
-        "norman-huth/nova-basic-package": "^1.0.1"
+        "norman-huth/nova-basic-package": "^1.2.1"
     },
     "autoload": {
         "psr-4": {

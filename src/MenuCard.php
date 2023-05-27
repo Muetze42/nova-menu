@@ -216,6 +216,7 @@ class MenuCard implements JsonSerializable
             'styles' => $this->styles,
             'keywords' => $this->keywords,
             'filterClass' => $this->filterClass,
+            'notFilterable' => $this->notFilterable,
         ];
     }
 }

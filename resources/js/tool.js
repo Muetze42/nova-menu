@@ -4,6 +4,7 @@ import MenuItem from './components/MenuItem'
 import MenuCard from './components/MenuCard'
 import MainMenu from './components/MainMenu'
 import Icon from './components/Icon'
+import UserMenu from './components/UserMenu'
 
 Nova.booting((app, store) => {
     app.component('NHMenuIcon', Icon)
@@ -12,4 +13,5 @@ Nova.booting((app, store) => {
     app.component('menu-item-norman-huth', MenuItem)
     app.component('menu-card-norman-huth', MenuCard)
     app.component('MainMenu', MainMenu)
+    app.component('UserMenu', UserMenu)
 })

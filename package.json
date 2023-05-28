@@ -9,11 +9,11 @@
         "prod": "npm run production",
         "production": "mix --production",
         "nova:install": "npm --prefix='../../vendor/laravel/nova' ci",
-        "build:fa": "mix --mix-config=webpack.fa.mix.js --production",
         "build:tw": "mix --mix-config=webpack.tw.mix.js --production"
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^6.4.0",
+        "@headlessui/vue": "^1.7.13",
         "@inertiajs/inertia": "^0.11.0",
         "@vue/compiler-sfc": "^3.2.22",
         "autoprefixer": "^10.4.14",

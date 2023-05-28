@@ -100,8 +100,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
 This feature is available from version 1.6.5.
 </div>
 
-By default, the stylesheet classes hidden is used for filtering.  
-You can change this by invoking the `setFilterClass` when activate filter.  
+By default, the stylesheet classes `hidden` is used for filtering.  
+You can change this by invoking the `setFilterClass` when defining a menu element.  
 
 
 ```php

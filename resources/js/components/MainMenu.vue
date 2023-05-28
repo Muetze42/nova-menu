@@ -5,6 +5,13 @@
         dusk="sidebar-menu"
         role="navigation"
     >
+        <component
+            v-if="unfilteredMainMenuOver && unfilteredMainMenuOver.length > 0"
+            :key="item.key"
+            :is="item.component"
+            v-for="(item, index) in unfilteredMainMenuOver"
+            :item="item"
+        />
         <div className="menu-filter menu-filter-top" v-if="$page.props.menuAdvPosition && ['top', 'both'].includes($page.props.menuAdvPosition)">
             <input type="search" v-model="menuFilter" className="w-full form-control form-input form-input-bordered menu-filter-input"
                    :placeholder="$page.props.menuAdvPlaceholder ? $page.props.menuAdvPlaceholder : __('Filter')">
@@ -24,6 +31,13 @@
             <input type="search" v-model="menuFilter" className="w-full form-control form-input form-input-bordered menu-filter-input"
                    :placeholder="$page.props.menuAdvPlaceholder ? $page.props.menuAdvPlaceholder : __('Filter')">
         </div>
+        <component
+            v-if="unfilteredMainMenuUnder && unfilteredMainMenuUnder.length > 0"
+            :key="item.key"
+            :is="item.component"
+            v-for="(item, index) in unfilteredMainMenuUnder"
+            :item="item"
+        />
     </div>
 </template>
 
@@ -39,6 +53,8 @@ export default {
             menuFilter: null,
             hiddenClass: ' hidden',
             showItems: true,
+            unfilteredMainMenuOver: Nova.config('unfilteredMainMenuOver'),
+            unfilteredMainMenuUnder: Nova.config('unfilteredMainMenuUnder'),
         }
     },
 
@@ -46,7 +62,9 @@ export default {
         ...mapGetters(['mainMenu']),
 
         hasItems() {
-            return this.mainMenu.length > 0
+            return this.mainMenu.length > 0 ||
+                (this.unfilteredMainMenuOver && this.unfilteredMainMenuOver.length > 0) ||
+                (this.unfilteredMainMenuUnder && this.unfilteredMainMenuUnder.length > 0)
         },
     },
 
@@ -74,6 +92,12 @@ export default {
             })
         },
         filterItem(item, search, show = false) {
+            /* Skip not filterable items */
+            if (item.notFilterable || item.classes === undefined || item.classes.filterClass === undefined || !item.filterClass === undefined) {
+                this.showItems = true
+                return true
+            }
+
             let hide = search.length
             if (hide && item.name && item.name.toLowerCase().includes(search)) {
                 hide = false

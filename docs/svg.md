@@ -5,41 +5,35 @@ You can customize a Heroicon icon displayed by invoking the `svgIcon` method whe
 ## Use SVG Directly
 
 ```php
-use NormanHuth\NovaMenu\MenuSection; // [tl! focus]
-use NormanHuth\NovaMenu\MenuGroup; // [tl! focus]
-use NormanHuth\NovaMenu\MenuItem; // [tl! focus]
+use NormanHuth\NovaMenu\MenuSection;
+use NormanHuth\NovaMenu\MenuGroup;
+use NormanHuth\NovaMenu\MenuItem;
+use NormanHuth\NovaMenu\MenuDisclosure;
 
-Nova::mainMenu(function (Request $request) {
-    return [
-        //..
-        MenuSection::make(__('Customers'), []) // [tl! focus]
-            ->svgIcon('<svg xmlns="...'), // [tl! focus]
-        MenuGroup::make(__('Licensing'), []) // [tl! focus]
-            ->svgIcon('<svg xmlns="...'), // [tl! focus]
-        MenuItem::resource(User::class) // [tl! focus]
-            ->svgIcon('<svg xmlns="...'), // [tl! focus]
-        // ..
-    ];
-});
+MenuSection::make(__('Customers'), [])
+    ->svgIcon('<svg xmlns="...'),
+MenuGroup::make(__('Licensing'), [])
+    ->svgIcon('<svg xmlns="...'),
+MenuItem::resource(User::class)
+    ->svgIcon('<svg xmlns="...'),
+MenuDisclosure::make(__('Customers'), [])
+    ->svgIcon('<svg xmlns="...'),
 ```
 
 ## Use SVG File
 
 ```php
-use NormanHuth\NovaMenu\MenuSection; // [tl! focus]
-use NormanHuth\NovaMenu\MenuGroup; // [tl! focus]
-use NormanHuth\NovaMenu\MenuItem; // [tl! focus]
+use NormanHuth\NovaMenu\MenuSection;
+use NormanHuth\NovaMenu\MenuGroup;
+use NormanHuth\NovaMenu\MenuItem;
+use NormanHuth\NovaMenu\MenuDisclosure;
 
-Nova::mainMenu(function (Request $request) {
-    return [
-        //..
-        MenuSection::make(__('Customers'), []) // [tl! focus]
-            ->svgIcon(resource_path('icon.svg')), // [tl! focus]
-        MenuGroup::make(__('Licensing'), []) // [tl! focus]
-            ->svgIcon(resource_path('icon.svg')), // [tl! focus]
-        MenuItem::resource(User::class) // [tl! focus]
-            ->svgIcon(resource_path('icon.svg')), // [tl! focus]
-        // ..
-    ];
-});
+MenuSection::make(__('Customers'), [])
+    ->svgIcon(resource_path('icon.svg')),
+MenuGroup::make(__('Licensing'), [])
+    ->svgIcon(resource_path('icon.svg')),
+MenuItem::resource(User::class)
+    ->svgIcon(resource_path('icon.svg')),
+MenuDisclosure::make(__('Customers'), [])
+    ->svgIcon(resource_path('icon.svg')),
 ```

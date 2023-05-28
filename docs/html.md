@@ -3,19 +3,17 @@
 You can customize HTML code as icon displayed by invoking the `htmlIcon` method when defining the menu:
 
 ```php
-use NormanHuth\NovaMenu\MenuSection; // [tl! focus]
-use NormanHuth\NovaMenu\MenuGroup; // [tl! focus]
-use NormanHuth\NovaMenu\MenuItem; // [tl! focus]
+use NormanHuth\NovaMenu\MenuSection;
+use NormanHuth\NovaMenu\MenuGroup;
+use NormanHuth\NovaMenu\MenuItem;
+use NormanHuth\NovaMenu\MenuDisclosure;
 
-Nova::mainMenu(function (Request $request) {
-    return [
-        //..
-        MenuSection::make(__('Customers'), []) // [tl! focus]
-            ->htmlIcon('YOUR-HTML-CODE'), // [tl! focus]
-        MenuGroup::make(__('Licensing'), []) // [tl! focus]
-           ->htmlIcon('YOUR-HTML-CODE'), // [tl! focus]
-        MenuItem::resource(User::class) // [tl! focus]
-           ->htmlIcon('YOUR-HTML-CODE'), // [tl! focus]
-    ];
-});
+MenuSection::make(__('Customers'), [])
+    ->htmlIcon('YOUR-HTML-CODE'),
+MenuGroup::make(__('Licensing'), [])
+   ->htmlIcon('YOUR-HTML-CODE'),
+MenuItem::resource(User::class)
+   ->htmlIcon('YOUR-HTML-CODE'),
+MenuDisclosure::make(__('Customers'), [])
+    ->htmlIcon('YOUR-HTML-CODE'),
 ```

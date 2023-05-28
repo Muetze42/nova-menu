@@ -86,9 +86,19 @@ import isNull from 'lodash/isNull'
 import omitBy from 'lodash/omitBy'
 import pickBy from 'lodash/pickBy'
 import { mapActions, mapGetters } from 'vuex'
+import {
+    Disclosure,
+    DisclosureButton,
+    DisclosurePanel,
+} from '@headlessui/vue'
 
 export default {
     name: "UserMenu",
+    components: {
+        Disclosure,
+        DisclosureButton,
+        DisclosurePanel,
+    },
     props: {
         mobile: { type: Boolean, default: false },
     },
@@ -131,6 +141,15 @@ export default {
 
         formattedItems() {
             return this.userMenu.map(i => {
+                if (i.isCustom) {
+                    return {
+                        component: i.component,
+                        isCustom: true,
+                        props: {item: i},
+                        on: {},
+                    }
+                }
+
                 let method = i.method || 'GET'
                 let props = { href: i.path }
 

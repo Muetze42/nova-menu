@@ -4,7 +4,6 @@ namespace NormanHuth\NovaMenu;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Laravel\Nova\Menu\Menu;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Events\ServingNova;

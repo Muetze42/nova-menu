@@ -3,20 +3,17 @@
 You can customize a Heroicon icon displayed by invoking the `icon` method when defining the menu:
 
 ```php
-use NormanHuth\NovaMenu\MenuSection; // [tl! focus]
-use NormanHuth\NovaMenu\MenuGroup; // [tl! focus]
-use NormanHuth\NovaMenu\MenuItem; // [tl! focus]
+use NormanHuth\NovaMenu\MenuSection;
+use NormanHuth\NovaMenu\MenuGroup;
+use NormanHuth\NovaMenu\MenuItem;
+use NormanHuth\NovaMenu\MenuDisclosure;
 
-Nova::mainMenu(function (Request $request) {
-    return [
-        //..
-        MenuSection::make(__('Customers'), []) // [tl! focus]
-            ->icon('chart-bar'), // [tl! focus]
-        MenuGroup::make(__('Licensing'), []) // [tl! focus]
-            ->icon('chart-bar'), // [tl! focus]
-        MenuItem::resource(User::class) // [tl! focus]
-            ->icon('chart-bar'), // [tl! focus]
-        // ..
-    ];
-});
+MenuSection::make(__('Customers'), []) 
+    ->icon('chart-bar'),
+MenuGroup::make(__('Licensing'), [])
+    ->icon('chart-bar'),
+MenuItem::resource(User::class)
+    ->icon('chart-bar'),
+MenuDisclosure::make(__('Licensing'), [])
+    ->icon('chart-bar'),
 ```

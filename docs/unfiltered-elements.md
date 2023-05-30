@@ -2,7 +2,7 @@
 
 ## Disable Filter For Menu Elements
 
-You can disable the filter function for a menu element by invoking the `addKeywords` method when defining a menu element:
+You can disable the filter function for a menu element by invoking the `notFilterable` method when defining a menu element:
 
 ```php
 use NormanHuth\NovaMenu\MenuSection; // [tl! focus]

@@ -92,7 +92,7 @@
 </template>
 
 <script>
-import Collapsable from './../../../../../vendor/laravel/nova/resources/js/mixins/Collapsable.js'
+import Collapsable from './../../../../../laravel/nova/resources/js/mixins/Collapsable.js'
 import { mapGetters, mapMutations } from 'vuex'
 
 export default {

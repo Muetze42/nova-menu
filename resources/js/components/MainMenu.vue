@@ -27,7 +27,7 @@
             v-for="(item, index) in mainMenu"
             :item="item"
         />
-        <div className="menu-filter menu-filter-bottom" v-if="$page.props.menuAdvPosition && ['top', 'both'].includes($page.props.menuAdvPosition)">
+        <div className="menu-filter menu-filter-bottom" v-if="$page.props.menuAdvPosition && ['bottom', 'both'].includes($page.props.menuAdvPosition)">
             <input type="search" v-model="menuFilter" className="w-full form-control form-input form-input-bordered menu-filter-input"
                    :placeholder="$page.props.menuAdvPlaceholder ? $page.props.menuAdvPlaceholder : __('Filter')">
         </div>

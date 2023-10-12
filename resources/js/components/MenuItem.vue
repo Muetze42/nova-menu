@@ -9,7 +9,7 @@
       :class="[{
         'font-bold text-primary-500 dark:text-primary-500': item.active,
       }, { 'inertia-link-active': item.active },
-      { 'cursor-pointer menu-iframe-item': item.iframe.target }, item.icons.classes.elem]"
+      { 'cursor-pointer menu-iframe-item': item.iframe.target }, item.icons.classes.elem, item.classes.filterClass]"
       @click="item.iframe.target ? open = true : handleClick"
     >
       <span class="inline-block shrink-0 w-6 h-6">

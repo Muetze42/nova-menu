@@ -1,5 +1,5 @@
 <template>
-  <div v-if="item.items.length > 0">
+  <div v-if="item.items.length > 0" :class="item.classes.filterClass">
     <h4
       @click.prevent="handleClick"
       class="flex items-center px-1 py-1 rounded text-left text-gray-500"

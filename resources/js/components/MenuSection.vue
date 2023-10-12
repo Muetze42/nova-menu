@@ -1,5 +1,5 @@
 <template>
-  <div class="relative" v-if="item.path || item.items.length > 0">
+  <div class="relative" v-if="item.path || item.items.length > 0" :class="item.classes.filterClass">
     <component
       :is="component"
       :href="item.path ?? null"

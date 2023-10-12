@@ -5,9 +5,12 @@ namespace NormanHuth\NovaMenu;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Nova\Events\ServingNova;
 use Laravel\Nova\Nova;
+use NormanHuth\NovaBasePackage\ServiceProviderTrait;
 
 class ToolServiceProvider extends ServiceProvider
 {
+    use ServiceProviderTrait;
+
     /**
      * Bootstrap any application services.
      *
@@ -20,6 +23,7 @@ class ToolServiceProvider extends ServiceProvider
         });
 
         if ($this->app->runningInConsole()) {
+            $this->addAbout();
             $this->commands($this->getCommands());
         }
     }

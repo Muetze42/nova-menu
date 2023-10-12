@@ -30,7 +30,9 @@ trait LabelTrait
     /**
      * Use Icon in label attribute.
      *
-     * @return $this
+     * @param float $gap
+     *
+     * @return \NormanHuth\NovaMenu\LabelTrait
      */
     public function asLabel(
         #[ExpectedValues(values: [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 5, 6, 8])]

@@ -31,7 +31,7 @@
       </span>
     </h4>
 
-    <div v-if="!collapsed">
+    <div v-if="!collapsed && !item.iframe.target">
       <component
         :key="item.name"
         v-for="item in item.items"

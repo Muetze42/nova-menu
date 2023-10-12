@@ -39,7 +39,7 @@
       </span>
     </component>
 
-    <div v-if="item.items.length > 0 && !collapsed" class="mt-1 space-y-1">
+    <div v-if="!item.iframe.target && item.items.length > 0 && !collapsed" class="mt-1 space-y-1">
       <component
         :is="item.component"
         v-for="item in item.items"

@@ -27,7 +27,7 @@
         v-if="item.collapsable"
         class="inline-flex items-center justify-center shrink-0 w-6 h-6"
       >
-        <CollapseButton :collapsed="collapsed" :to="item.path" />
+        <CollapseButton :collapsed="collapsed" :to="item.path"/>
       </span>
     </h4>
 
@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import Collapsable from './../../../../../vendor/laravel/nova/resources/js/mixins/Collapsable.js'
+import Collapsable from './../../../../../laravel/nova/resources/js/mixins/Collapsable.js'
 
 export default {
   mixins: [Collapsable],
@@ -58,7 +58,7 @@ export default {
       if (this.item.collapsable) {
         this.toggleCollapse()
       }
-    },
+    }
   },
 
   data() {
@@ -88,7 +88,7 @@ export default {
 
     collapsedByDefault() {
       return this.item?.collapsedByDefault ?? false
-    },
-  },
+    }
+  }
 }
 </script>

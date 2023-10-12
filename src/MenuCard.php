@@ -61,8 +61,7 @@ class MenuCard implements JsonSerializable
     public function __construct(
         #[ExpectedValues(values: ['info', 'success', 'warning', 'danger'])]
         ?string $type = null
-    )
-    {
+    ) {
         $types = [
             'success' => [
                 'bg-green-100',
@@ -102,13 +101,13 @@ class MenuCard implements JsonSerializable
      * Create a new element.
      *
      * @param string|null $type
-     * @return static
+     *
+     * @return \NormanHuth\NovaMenu\MenuCard
      */
     public static function make(
         #[ExpectedValues(values: ['info', 'success', 'warning', 'danger'])]
         ?string $type = null
-    ): static
-    {
+    ): static {
         return new static($type);
     }
 
@@ -116,7 +115,8 @@ class MenuCard implements JsonSerializable
      * Set menu card content.
      *
      * @param string $content
-     * @return $this
+     *
+     * @return \NormanHuth\NovaMenu\MenuCard
      */
     public function content(string $content): static
     {
@@ -131,7 +131,8 @@ class MenuCard implements JsonSerializable
      * @param string          $view
      * @param array|Arrayable $data
      * @param array           $mergeData
-     * @return static
+     *
+     * @return \NormanHuth\NovaMenu\MenuCard
      */
     public function view(string $view, array|Arrayable $data = [], array $mergeData = []): static
     {
@@ -144,17 +145,17 @@ class MenuCard implements JsonSerializable
      * Add Tailwind CSS rounded class to the menu card.
      *
      * @param string|null $size
-     * @return $this
+     *
+     * @return \NormanHuth\NovaMenu\MenuCard
      */
     public function rounded(
         #[ExpectedValues(values: ['sm', 'md', 'lg'])]
         string $size = null
-    ): static
-    {
+    ): static {
         $class = 'rounded';
 
         if ($size) {
-            $class .= '-'.$size;
+            $class .= '-' . $size;
         }
 
         $this->addClasses($class);
@@ -165,7 +166,7 @@ class MenuCard implements JsonSerializable
     /**
      * Use menu card as menu item.
      *
-     * @return $this
+     * @return \NormanHuth\NovaMenu\MenuCard
      */
     public function asItem(): static
     {
@@ -178,7 +179,8 @@ class MenuCard implements JsonSerializable
      * Add classes to the menu card class attribute.
      *
      * @param string|array $classes
-     * @return $this
+     *
+     * @return \NormanHuth\NovaMenu\MenuCard
      */
     public function addClasses(string|array $classes): static
     {
@@ -191,7 +193,8 @@ class MenuCard implements JsonSerializable
      * Add styles to the menu card style attribute.
      *
      * @param array $styles
-     * @return $this
+     *
+     * @return \NormanHuth\NovaMenu\MenuCard
      */
     public function addStyles(array $styles): static
     {

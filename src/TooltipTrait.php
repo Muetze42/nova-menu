@@ -11,6 +11,11 @@ trait TooltipTrait
      */
     protected ?string $tooltip = null;
 
+    /**
+     * @param string $tooltip
+     *
+     * @return \NormanHuth\NovaMenu\TooltipTrait
+     */
     public function tooltip(string $tooltip): static
     {
         $this->tooltip = $tooltip;

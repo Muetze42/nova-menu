@@ -13,13 +13,13 @@
       @click="item.iframe.target ? open = true : handleClick"
     >
       <span class="inline-block shrink-0 w-6 h-6">
-        <NHMenuIcon :icons="item.icons" v-if="!item.icons.asLabel" />
+        <NHMenuIcon :icons="item.icons" v-if="!item.icons.asLabel"/>
       </span>
       <span
         class="flex-1 flex items-center w-full px-3 text-sm"
         :class="'gap-x-'+item.icons.labelGap + item.icons.classes.label"
       >
-        <NHMenuIcon :icons="item.icons" v-if="item.icons.asLabel" />
+        <NHMenuIcon :icons="item.icons" v-if="item.icons.asLabel"/>
         {{ item.name }}
       </span>
 
@@ -40,14 +40,14 @@ import identity from 'lodash/identity'
 import isNull from 'lodash/isNull'
 import omitBy from 'lodash/omitBy'
 import pickBy from 'lodash/pickBy'
-import { mapGetters, mapMutations } from 'vuex'
+import {mapGetters, mapMutations} from 'vuex'
 
 export default {
   props: {
     item: {
       type: Object,
-      required: true,
-    },
+      required: true
+    }
   },
 
   methods: {
@@ -57,13 +57,13 @@ export default {
       if (this.mainMenuShown) {
         this.toggleMainMenu()
       }
-    },
+    }
   },
 
   data() {
     return {
       open: false
-    };
+    }
   },
   watch: {
     open(isOpen) {
@@ -100,13 +100,13 @@ export default {
             headers: this.item.headers || null,
             data: this.item.data || null,
             rel: this.component === 'a' ? 'noreferrer noopener' : null,
-            target: this.item.target || null,
+            target: this.item.target || null
           },
           isNull
         ),
         identity
       )
-    },
-  },
+    }
+  }
 }
 </script>

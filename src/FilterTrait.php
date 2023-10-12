@@ -29,7 +29,8 @@ trait FilterTrait
      * Specify that the element should be hidden from the index view.
      *
      * @param (callable():(bool))|bool $callback
-     * @return $this
+     *
+     * @return \NormanHuth\NovaMenu\FilterTrait
      */
     public function notFilterable(callable|bool $callback = true): static
     {
@@ -44,7 +45,8 @@ trait FilterTrait
      * Add Keywords to element.
      *
      * @param array $keywords
-     * @return $this
+     *
+     * @return \NormanHuth\NovaMenu\FilterTrait
      */
     public function addKeywords(array $keywords): static
     {
@@ -58,7 +60,9 @@ trait FilterTrait
     /**
      * Set class wich using to filter menu element.
      *
-     * @return $this
+     * @param string $class
+     *
+     * @return \NormanHuth\NovaMenu\FilterTrait
      */
     public function setFilterClass(string $class): static
     {

@@ -40,7 +40,8 @@ trait IframeTrait
      * Add classes to the iframe class attribute.
      *
      * @param array|string $classes
-     * @return $this
+     *
+     * @return \NormanHuth\NovaMenu\IframeTrait
      */
     public function addIframeClasses(array|string $classes): static
     {
@@ -53,7 +54,8 @@ trait IframeTrait
      * Add styles to the iframe style attribute.
      *
      * @param array|string $styles
-     * @return $this
+     *
+     * @return \NormanHuth\NovaMenu\IframeTrait
      */
     public function addIframeStyles(array|string $styles): static
     {
@@ -66,7 +68,8 @@ trait IframeTrait
      * Set styles to the iframe style attribute.
      *
      * @param array|string|null $styles
-     * @return $this
+     *
+     * @return \NormanHuth\NovaMenu\IframeTrait
      */
     public function setIframeStyles(array|string|null $styles): static
     {
@@ -79,7 +82,8 @@ trait IframeTrait
      * Add classes to the iframe wrapper class attribute.
      *
      * @param array|string $classes
-     * @return $this
+     *
+     * @return \NormanHuth\NovaMenu\IframeTrait
      */
     public function addIframeWrapperClasses(array|string $classes): static
     {
@@ -92,7 +96,8 @@ trait IframeTrait
      * Add styles to the iframe wrapper style attribute.
      *
      * @param array|string $styles
-     * @return $this
+     *
+     * @return \NormanHuth\NovaMenu\IframeTrait
      */
     public function addIframeWrapperStyles(array|string $styles): static
     {
@@ -105,7 +110,8 @@ trait IframeTrait
      * Set styles to the iframe wrapper style attribute.
      *
      * @param array|string|null $styles
-     * @return $this
+     *
+     * @return \NormanHuth\NovaMenu\IframeTrait
      */
     public function setIframeWrapperStyles(array|string|null $styles): static
     {
@@ -119,7 +125,8 @@ trait IframeTrait
      *
      * @param string $name
      * @param string $target
-     * @return static
+     *
+     * @return \NormanHuth\NovaMenu\IframeTrait
      */
     public static function iframe(string $name, string $target): static
     {
@@ -137,7 +144,8 @@ trait IframeTrait
      * Set iframe target.
      *
      * @param string $target
-     * @return $this
+     *
+     * @return \NormanHuth\NovaMenu\IframeTrait
      */
     public function iframeTarget(string $target): static
     {

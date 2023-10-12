@@ -1,11 +1,9 @@
 <?xml version="1.0"?>
 <!-- @see https://pear.php.net/manual/en/package.php.php-codesniffer.annotated-ruleset.php -->
 <ruleset name="PHPCS Rules">
-    <description>PHPCS Laravel rule set - Created 10/2023 by Norman Huth</description>
+    <description>PHPCS Laravel Package rule set - Created 10/2023 by Norman Huth</description>
 
-    <file>./app</file>
-    <file>./config</file>
-    <file>./database</file>
+    <file>./src</file>
 
 	<!-- Use colors in output -->
     <arg name="colors"/>
@@ -16,13 +14,13 @@
         </properties>
     </rule>
 
-    <rule ref="Generic.Files.LineLength">
-        <properties>
-            <property name="lineLimit" value="120"/>
-            <property name="absoluteLineLimit" value="120"/>
-            <!-- property name="ignoreComments" value="true" / -->
-        </properties>
-    </rule>
+<!--    <rule ref="Generic.Files.LineLength">-->
+<!--        <properties>-->
+<!--            <property name="lineLimit" value="120"/>-->
+<!--            <property name="absoluteLineLimit" value="120"/>-->
+<!--            &lt;!&ndash; property name="ignoreComments" value="true" / &ndash;&gt;-->
+<!--        </properties>-->
+<!--    </rule>-->
 
 	<exclude-pattern>*/*.blade.php</exclude-pattern>
 	<exclude-pattern>*/*.js</exclude-pattern>

@@ -18,13 +18,13 @@ class MenuFilter
      * Activate main menu filter.
      *
      * @param string $postion
-     * @return static
+     *
+     * @return \NormanHuth\NovaMenu\Services\MenuFilter
      */
     public static function activate(
         #[ExpectedValues(values: ['top', 'bottom', 'both'])]
         string $postion
-    ): static
-    {
+    ): static {
         return new static($postion);
     }
 
@@ -32,7 +32,8 @@ class MenuFilter
      * Set menu filter input placeholder.
      *
      * @param string $placeholder
-     * @return MenuFilter
+     *
+     * @return \NormanHuth\NovaMenu\Services\MenuFilter
      */
     public function placeholder(string $placeholder): static
     {
@@ -45,7 +46,8 @@ class MenuFilter
      * Set menu filter empty text.
      *
      * @param string $text
-     * @return MenuFilter
+     *
+     * @return \NormanHuth\NovaMenu\Services\MenuFilter
      */
     public function emptyText(string $text): static
     {

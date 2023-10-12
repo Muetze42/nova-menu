@@ -16,7 +16,7 @@ class ToolServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Nova::serving(function (ServingNova $event) {
-            Nova::script('norman-huth-menu', __DIR__.'/../dist/js/tool.js');
+            Nova::script('norman-huth-menu', __DIR__ . '/../dist/js/tool.js');
         });
 
         if ($this->app->runningInConsole()) {
@@ -32,8 +32,8 @@ class ToolServiceProvider extends ServiceProvider
     protected function getCommands(): array
     {
         return array_filter(array_map(function ($item) {
-            return '\\'.__NAMESPACE__.'\\Console\\Commands\\'.pathinfo($item, PATHINFO_FILENAME);
-        }, glob(__DIR__.'/Console/Commands/*.php')), function ($item) {
+            return '\\' . __NAMESPACE__ . '\\Console\\Commands\\' . pathinfo($item, PATHINFO_FILENAME);
+        }, glob(__DIR__ . '/Console/Commands/*.php')), function ($item) {
             return class_basename($item) != 'Command';
         });
     }

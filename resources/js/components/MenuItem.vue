@@ -1,31 +1,38 @@
 <template>
-    <div class="sidebar-item" :class="item.classes.filterClass">
-        <component
-            :is="component"
-            v-bind="linkAttributes"
-            class="sidebar-item-title relative"
-            :class="[{ 'inertia-link-active': item.active }, { 'cursor-pointer menu-iframe-item': item.iframe.target }, item.icons.classes.elem]"
-            @click="item.iframe.target ? open = true : handleClick"
-            v-tooltip.click="item.tooltip"
-        >
-            <span class="sidebar-item-icon flex items-center">
-                <NHMenuIcon :icons="item.icons" v-if="!item.icons.asLabel" />
-            </span>
-            <span class="sidebar-item-label flex items-center flex items-center" :class="'gap-x-'+item.icons.labelGap + item.icons.classes.label">
-                <NHMenuIcon :icons="item.icons" v-if="item.icons.asLabel" />
-                {{ item.name }}
+  <div>
+    <component
+      :is="component"
+      v-bind="linkAttributes"
+      class="w-full flex min-h-8 px-1 py-1 rounded text-left text-gray-500 dark:text-gray-500 focus:outline-none focus:ring focus:ring-primary-200 dark:focus:ring-gray-600 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800"
+      :data-active-link="item.active"
+      v-tooltip.click="item.tooltip"
+      :class="[{
+        'font-bold text-primary-500 dark:text-primary-500': item.active,
+      }, { 'inertia-link-active': item.active },
+      { 'cursor-pointer menu-iframe-item': item.iframe.target }, item.icons.classes.elem]"
+      @click="item.iframe.target ? open = true : handleClick"
+    >
+      <span class="inline-block shrink-0 w-6 h-6">
+        <NHMenuIcon :icons="item.icons" v-if="!item.icons.asLabel" />
+      </span>
+      <span
+        class="flex-1 flex items-center w-full px-3 text-sm"
+        :class="'gap-x-'+item.icons.labelGap + item.icons.classes.label"
+      >
+        <NHMenuIcon :icons="item.icons" v-if="item.icons.asLabel" />
+        {{ item.name }}
+      </span>
 
-                <span v-if="item.badge" class="mx-2 absolute right-0">
-                    <Badge :extra-classes="item.badge.typeClass">
-                        {{ item.badge.value }}
-                    </Badge>
-                </span>
-            </span>
-        </component>
-    </div>
-    <div :class="item.iframe.wrapper.classes" :style="item.iframe.wrapper.styles" @click="open = false" v-if="open">
-        <iframe :class="item.iframe.iframe.classes" :style="item.iframe.iframe.styles" :src="item.iframe.target"></iframe>
-    </div>
+      <span class="inline-block h-6 shrink-0">
+        <Badge v-if="item.badge" :extra-classes="item.badge.typeClass">
+          {{ item.badge.value }}
+        </Badge>
+      </span>
+    </component>
+  </div>
+  <div :class="item.iframe.wrapper.classes" :style="item.iframe.wrapper.styles" @click="open = false" v-if="open">
+    <iframe :class="item.iframe.iframe.classes" :style="item.iframe.iframe.styles" :src="item.iframe.target"></iframe>
+  </div>
 </template>
 
 <script>
@@ -36,68 +43,70 @@ import pickBy from 'lodash/pickBy'
 import { mapGetters, mapMutations } from 'vuex'
 
 export default {
-    name: "MenuItem",
-    props: {
-        item: {
-            type: Object,
-            required: true,
-        },
+  props: {
+    item: {
+      type: Object,
+      required: true,
     },
-    data() {
-        return {
-            open: false
-        };
+  },
+
+  methods: {
+    ...mapMutations(['toggleMainMenu']),
+
+    handleClick() {
+      if (this.mainMenuShown) {
+        this.toggleMainMenu()
+      }
     },
-    watch: {
-        open(isOpen) {
-            let body = document.querySelector('body')
-            body.style.overflow = isOpen ? 'hidden' : 'visible'
-        }
+  },
+
+  data() {
+    return {
+      open: false
+    };
+  },
+  watch: {
+    open(isOpen) {
+      let body = document.querySelector('body')
+      body.style.overflow = isOpen ? 'hidden' : 'visible'
+    }
+  },
+
+  computed: {
+    ...mapGetters(['mainMenuShown']),
+
+    requestMethod() {
+      return this.item.method || 'GET'
     },
-    methods: {
-        ...mapMutations(['toggleMainMenu']),
 
-        handleClick() {
-            if (this.mainMenuShown) {
-                this.toggleMainMenu()
-            }
-        },
+    component() {
+      if (this.requestMethod !== 'GET') {
+        return 'FormButton'
+      } else if (this.item.external !== true) {
+        return 'Link'
+      }
+
+      return 'a'
     },
-    computed: {
-        ...mapGetters(['mainMenuShown']),
 
-        requestMethod() {
-            return this.item.method || 'GET'
-        },
+    linkAttributes() {
+      let method = this.requestMethod
 
-        component() {
-            if (this.requestMethod !== 'GET') {
-                return 'FormButton'
-            } else if (!this.item.iframe.target && this.item.external !== true) {
-                return 'Link'
-            }
-
-            return 'a'
-        },
-
-        linkAttributes() {
-            let method = this.requestMethod
-
-            return pickBy(
-                omitBy(
-                    {
-                        href: !this.item.iframe.target ? this.item.path : null,
-                        method: method !== 'GET' ? method : null,
-                        headers: this.item.headers || null,
-                        data: this.item.data || null,
-                        rel: !this.item.iframe.target && this.component === 'a' ? 'noreferrer noopener' : null,
-                        target: this.item.target || null,
-                    },
-                    isNull
-                ),
-                identity
-            )
-        },
+      return pickBy(
+        omitBy(
+          {
+            href: this.item.path,
+            method: method !== 'GET' ? method : null,
+            headers: this.item.headers || null,
+            data: this.item.data || null,
+            rel: this.component === 'a' ? 'noreferrer noopener' : null,
+            target: this.item.target || null,
+          },
+          isNull
+        ),
+        identity
+      )
     },
+  },
 }
 </script>

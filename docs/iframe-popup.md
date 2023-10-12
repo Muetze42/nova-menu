@@ -11,7 +11,7 @@ Nova::mainMenu(function (Request $request) {
     return [
         //..
         MenuSection::iframe('Norman Huth', 'https://huth.it'), // [tl! focus]
-        MenuGroup::iframe('Norman Huth', 'https://huth.it')) // [tl! focus]
+        MenuGroup::iframe('Norman Huth', 'https://huth.it'), // [tl! focus]
         MenuItem::iframe('Norman Huth', 'https://huth.it'), // [tl! focus]
         // ..
     ];

@@ -3,11 +3,11 @@
     <h4
       @click.prevent="handleClick"
       class="flex items-center px-1 py-1 rounded text-left text-gray-500"
-      :class="{
+      :class="[{
         'cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800':
           displayAsButton,
         'font-bold text-primary-500 dark:text-primary-500': item.active,
-      }"
+      }, item.icons.classes.elem, { 'cursor-pointer menu-iframe-group': item.iframe.target }]"
       v-tooltip.click="item.tooltip"
       @click="item.iframe.target ? open = true : null"
     >

@@ -15,7 +15,7 @@
     <div class="menu-filter menu-filter-top"
          v-if="$page.props.menuAdvPosition && ['top', 'both'].includes($page.props.menuAdvPosition)">
       <input type="search" v-model="menuFilter"
-             class="w-full form-control form-input form-input-bordered menu-filter-input"
+             class="w-full form-control form-input form-input-bordered menu-filter-input form-control-bordered"
              :placeholder="$page.props.menuAdvPlaceholder ? $page.props.menuAdvPlaceholder : __('Filter')">
     </div>
     <div v-if="!showItems" class="text-center italic menu-filter-empty-text">
@@ -33,7 +33,7 @@
     <div class="menu-filter menu-filter-bottom"
          v-if="$page.props.menuAdvPosition && ['bottom', 'both'].includes($page.props.menuAdvPosition)">
       <input type="search" v-model="menuFilter"
-             class="w-full form-control form-input form-input-bordered menu-filter-input"
+             class="w-full form-control form-input form-input-bordered menu-filter-input form-control-bordered"
              :placeholder="$page.props.menuAdvPlaceholder ? $page.props.menuAdvPlaceholder : __('Filter')">
     </div>
     <component

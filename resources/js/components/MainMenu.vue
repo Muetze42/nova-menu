@@ -47,8 +47,8 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
-import {Inertia} from '@inertiajs/inertia'
+import { mapGetters } from 'vuex'
+import { Inertia } from '@inertiajs/inertia'
 
 export default {
   name: 'MainMenu',
@@ -75,6 +75,11 @@ export default {
 
   mounted() {
     Inertia.on('before', (event) => {
+      if (this.menuFilter) {
+        this.filterMenu(this.menuFilter)
+      }
+    })
+    Inertia.on('navigate', (event) => {
       if (this.menuFilter) {
         this.filterMenu(this.menuFilter)
       }

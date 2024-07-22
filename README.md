@@ -1,5 +1,10 @@
 # Nova Menu Advanced
 
+Installation:
+```
+composer require norman-huth/nova-menu
+```
+
 This package add following features to the [Laravel Nova menu](https://nova.laravel.com/docs/4.0/customization/menus.html):
 
 * Heroicon, Font Awesome, SVG & Image Icon for `MenuSection`, `MenuGroup` & `MenuItem`

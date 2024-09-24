@@ -1,27 +1,20 @@
 <template>
   <div class="relative" v-if="item.path || item.items.length > 0" :class="item.classes.filterClass">
-    <component
-      :is="component"
-      :href="item.path ?? null"
-      @click.prevent="handleClick"
+    <component :is="component" :href="item.path ?? null" @click.prevent="handleClick"
       :tabindex="displayAsButton ? 0 : null"
       class="w-full flex items-start px-1 py-1 rounded text-left text-gray-500 dark:text-gray-500 focus:outline-none focus:ring focus:ring-primary-200 dark:focus:ring-gray-600"
       :class="[{
         'cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800':
           displayAsButton,
         'font-bold text-primary-500 dark:text-primary-500': item.active,
-      },item.icons.classes.elem,{ 'cursor-pointer menu-iframe-section': item.iframe.target }]"
-      v-tooltip.click="item.tooltip"
-      @click="item.iframe.target ? open = true : null"
-    >
+      }, item.icons.classes.elem, { 'cursor-pointer menu-iframe-section': item.iframe.target }]"
+      v-tooltip.click="item.tooltip" @click="item.iframe.target ? open = true : null">
       <span class="inline-block shrink-0 w-6 h-6">
         <NHMenuIcon :icons="item.icons" />
       </span>
 
-      <span
-        class="flex-1 flex items-center w-full px-3 text-base"
-        :class="[{'font-bold inertia-link-active': item.active}, item.icons.classes.label]"
-      >
+      <span class="flex-1 flex items-center w-full px-3 text-base"
+        :class="[{ 'font-bold inertia-link-active': item.active }, item.icons.classes.label]">
         {{ item.name }}
       </span>
 
@@ -31,21 +24,13 @@
         </Badge>
       </span>
 
-      <span
-        v-if="item.collapsable"
-        class="inline-flex items-center justify-center shrink-0 w-6 h-6"
-      >
+      <span v-if="item.collapsable" class="inline-flex items-center justify-center shrink-0 w-6 h-6">
         <CollapseButton :collapsed="collapsed" :to="item.path" />
       </span>
     </component>
 
     <div v-if="!item.iframe.target && item.items.length > 0 && !collapsed" class="mt-1 space-y-1">
-      <component
-        :is="item.component"
-        v-for="item in item.items"
-        :key="item.name"
-        :item="item"
-      />
+      <component :is="item.component" v-for="item in item.items" :key="item.name" :item="item" />
     </div>
   </div>
   <div :class="item.iframe.wrapper.classes" :style="item.iframe.wrapper.styles" @click="open = false" v-if="open">
@@ -54,7 +39,7 @@
 </template>
 
 <script>
-import Collapsable from './../../../../../laravel/nova/resources/js/mixins/Collapsable.js'
+import Collapsable from 'laravel-nova-ui'
 import { mapGetters, mapMutations } from 'vuex'
 
 export default {

@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import Collapsable from 'laravel-nova-ui'
+import Collapsable from './../../../vendor/laravel/nova/resources/js/mixins/Collapsable.js'
 import { mapGetters, mapMutations } from 'vuex'
 
 export default {

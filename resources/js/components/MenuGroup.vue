@@ -1,5 +1,5 @@
 <template>
-  <div v-if="item.items.length > 0" :class="item.classes.filterClass">
+  <div v-if="item.items.length > 0" :class="item.classes.filterClass" class="menu-group">
     <h4 @click.prevent="handleClick" class="flex items-center px-1 py-1 rounded text-left text-gray-500" :class="[{
       'cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800':
         displayAsButton,
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import Collapsable from './../../../vendor/laravel/nova/resources/js/mixins/Collapsable.js'
+import Collapsable from './../../../../vendor/laravel/nova/resources/js/mixins/Collapsable.js'
 
 export default {
   mixins: [Collapsable],

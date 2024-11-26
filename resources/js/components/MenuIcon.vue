@@ -5,6 +5,7 @@
     :height="icons.height"
     :width="icons.height"
     :class="icons.classes.icon"
+    class="sidebar-hero-icon"
   />
   <i
     class="sidebar-fa-icon"
@@ -24,6 +25,7 @@
     alt="Icon"
     :class="icons.classes.icon"
     :style="{maxHeight: icons.height + 'px'}"
+    class="sidebar-image-icon"
   />
 </template>
 

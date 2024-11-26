@@ -1,5 +1,5 @@
 <template>
-  <div class="relative" v-if="item.path || item.items.length > 0" :class="item.classes.filterClass">
+  <div class="menu-section relative" v-if="item.path || item.items.length > 0" :class="item.classes.filterClass">
     <component :is="component" :href="item.path ?? null" @click.prevent="handleClick"
       :tabindex="displayAsButton ? 0 : null"
       class="w-full flex items-start px-1 py-1 rounded text-left text-gray-500 dark:text-gray-500 focus:outline-none focus:ring focus:ring-primary-200 dark:focus:ring-gray-600"
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import Collapsable from './../../../vendor/laravel/nova/resources/js/mixins/Collapsable.js'
+import Collapsable from './../../../../vendor/laravel/nova/resources/js/mixins/Collapsable.js'
 import { mapGetters, mapMutations } from 'vuex'
 
 export default {

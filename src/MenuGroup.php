@@ -14,6 +14,13 @@ class MenuGroup extends Group
     use FilterTrait;
 
     /**
+     * The menu's component.
+     *
+     * @var string
+     */
+    public $component = 'advanced-menu-group';
+
+    /**
      * Construct a new Menu Group instance.
      *
      * @param  string  $name

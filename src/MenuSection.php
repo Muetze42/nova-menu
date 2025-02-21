@@ -20,6 +20,13 @@ class MenuSection extends Section
     protected int $iconHeight = 24;
 
     /**
+     * The menu's component.
+     *
+     * @var string
+     */
+    public $component = 'advanced-menu-section';
+
+    /**
      * Construct a new Menu Section instance.
      *
      * @param  string  $name
@@ -48,7 +55,6 @@ class MenuSection extends Section
                 ]),
                 'collapsable' => !$this->iframe['target'] ? $this->collapsable : false,
                 'tooltip' => $this->tooltip,
-                'component' => 'menu-section-norman-huth',
                 'iframe' => $this->iframe,
                 'classes' => $this->classes,
                 'keywords' => $this->keywords,

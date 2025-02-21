@@ -4,15 +4,13 @@ import MenuItem from './components/MenuItem'
 import MenuCard from './components/MenuCard'
 import MainMenu from './components/MainMenu'
 import NHMenuIcon from './components/MenuIcon.vue'
-// import FormButton from './components/FormButton'
 import UserMenu from './components/UserMenu'
-// import DropdownMenuItem from './components/DropdownMenuItem'
 import MenuDisclosure from './components/MenuDisclosure'
 
 Nova.booting((app, store) => {
     app.component('NHMenuIcon', NHMenuIcon)
-    app.component('menu-section-norman-huth', MenuSection)
-    app.component('menu-group-norman-huth', MenuGroup)
+    app.component('advanced-menu-section', MenuSection)
+    app.component('advanced-menu-group', MenuGroup)
     app.component('menu-item-norman-huth', MenuItem)
     app.component('menu-card-norman-huth', MenuCard)
     app.component('MainMenu', MainMenu)

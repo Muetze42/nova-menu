@@ -13,10 +13,12 @@
         }
     ],
     "require": {
-        "php": "^8.0",
-        "laravel/nova": "^4.27.14",
-        "norman-huth/nova-basic-package": "^1.2.6",
-        "nova-kit/nova-packages-tool": "^1.17"
+        "php": "^8.2",
+        "laravel/nova": "^5.1",
+        "norman-huth/nova-basic-package": "^1.2"
+    },
+    "require-dev": {
+        "laravel/nova-devtool": "^1.2"
     },
     "repositories": {
         "nova": {
@@ -40,5 +42,8 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "require-dev": {
+        "laravel/nova-devtool": "^1.4"
+    }
 }

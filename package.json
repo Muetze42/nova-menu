@@ -25,5 +25,8 @@
         "vue": "^3.5.13",
         "vue-loader": "^17.4.2",
         "vuex": "^4.1.0"
+    },
+    "dependencies": {
+        "@inertiajs/vue3": "^2.0.3"
     }
 }

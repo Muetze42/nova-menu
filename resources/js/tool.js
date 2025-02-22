@@ -14,6 +14,6 @@ Nova.booting((app, store) => {
   app.component('AdvancedMenuItem', MenuItem)
   app.component('AdvancedMenuCard', MenuCard)
   // app.component('AdvancedMenuDisclosure', MenuDisclosure)
-f  app.component('MainMenu', MainMenu)
+  app.component('MainMenu', MainMenu)
   // app.component('UserMenu', UserMenu)
 })

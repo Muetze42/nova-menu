@@ -9,6 +9,11 @@ mix
   .vue({ version: 3 })
   .sass('resources/scss/tool.scss', 'css')
   .nova('norman-huth/nova-menu')
+  .webpackConfig({
+    externals: {
+      'laravel-nova-ui': 'LaravelNovaUi',
+    }
+  })
   .version()
   .disableNotifications()
 

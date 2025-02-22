@@ -4,8 +4,8 @@ namespace NormanHuth\NovaMenu;
 
 use Illuminate\Contracts\Support\Arrayable;
 use JetBrains\PhpStorm\ExpectedValues;
-use Laravel\Nova\AuthorizedToSee;
 use JsonSerializable;
+use Laravel\Nova\AuthorizedToSee;
 
 class MenuCard implements JsonSerializable
 {
@@ -16,28 +16,24 @@ class MenuCard implements JsonSerializable
     /**
      * The menu's component.
      *
-     * @var string
      */
     public string $component = 'menu-card-norman-huth';
 
     /**
      * The menu card's section.
      *
-     * @var string
      */
     protected string $section = 'Section';
 
     /**
      * The menu card's content.
      *
-     * @var string|null
      */
     protected ?string $content = null;
 
     /**
      * The menu card's classes.
      *
-     * @var array
      */
     protected array $classes = [
         'filterClass' => '',
@@ -47,14 +43,12 @@ class MenuCard implements JsonSerializable
     /**
      * The menu card's styles.
      *
-     * @var array
      */
     protected array $styles = [];
 
     /**
      * The menu card type.
      *
-     * @var string
      */
     protected string $type;
 
@@ -79,13 +73,13 @@ class MenuCard implements JsonSerializable
                 'bg-red-100',
                 'text-red-600',
                 'dark:bg-red-300',
-                'dark:text-red-900'
+                'dark:text-red-900',
             ],
             'warning' => [
                 'bg-yellow-100',
                 'text-yellow-600',
                 'dark:bg-yellow-200',
-                'dark:text-yellow-800'
+                'dark:text-yellow-800',
             ],
         ];
 
@@ -100,7 +94,6 @@ class MenuCard implements JsonSerializable
     /**
      * Create a new element.
      *
-     * @param string|null $type
      *
      * @return \NormanHuth\NovaMenu\MenuCard
      */
@@ -114,7 +107,6 @@ class MenuCard implements JsonSerializable
     /**
      * Set menu card content.
      *
-     * @param string $content
      *
      * @return \NormanHuth\NovaMenu\MenuCard
      */
@@ -128,9 +120,6 @@ class MenuCard implements JsonSerializable
     /**
      * Get the evaluated view contents for the menu card.
      *
-     * @param string          $view
-     * @param array|Arrayable $data
-     * @param array           $mergeData
      *
      * @return \NormanHuth\NovaMenu\MenuCard
      */
@@ -144,7 +133,6 @@ class MenuCard implements JsonSerializable
     /**
      * Add Tailwind CSS rounded class to the menu card.
      *
-     * @param string|null $size
      *
      * @return \NormanHuth\NovaMenu\MenuCard
      */
@@ -178,7 +166,6 @@ class MenuCard implements JsonSerializable
     /**
      * Add classes to the menu card class attribute.
      *
-     * @param string|array $classes
      *
      * @return \NormanHuth\NovaMenu\MenuCard
      */
@@ -192,7 +179,6 @@ class MenuCard implements JsonSerializable
     /**
      * Add styles to the menu card style attribute.
      *
-     * @param array $styles
      *
      * @return \NormanHuth\NovaMenu\MenuCard
      */

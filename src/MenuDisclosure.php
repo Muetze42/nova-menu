@@ -12,7 +12,6 @@ class MenuDisclosure extends Section
     /**
      * The icon height in pixel.
      *
-     * @var int
      */
     protected int $iconHeight = 15;
 

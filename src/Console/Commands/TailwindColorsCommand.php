@@ -3,6 +3,7 @@
 namespace NormanHuth\NovaMenu\Console\Commands;
 
 use Illuminate\Support\Facades\File;
+use NormanHuth\NovaBasePackage\Console\Commands\FontAwesomeCommand;
 
 class TailwindColorsCommand extends FontAwesomeCommand
 {

@@ -14,8 +14,6 @@ class MenuSection extends Section
 
     /**
      * The icon height in pixel.
-     *
-     * @var int
      */
     protected int $iconHeight = 24;
 

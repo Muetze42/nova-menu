@@ -9,13 +9,13 @@ use NormanHuth\NovaMenu\MenuItem;
 use NormanHuth\NovaMenu\MenuDisclosure;
 
 MenuSection::make(__('Customers'), []
-    ->faIcon('chart-bar'),
+    ->faIcon('fa-solid fa-house'),
 MenuGroup::make(__('Licensing'), [])
-    ->faIcon('chart-bar'),
+    ->faIcon('fa-solid fa-house'),
 MenuItem::resource(User::class)
-    ->faIcon('chart-bar'),
+    ->faIcon('fa-solid fa-house'),
 MenuDisclosure::make(__('Customers'), []
-    ->faIcon('chart-bar'),
+    ->faIcon('fa-solid fa-house'),
 ```
 
 ## Optional: Install Font Awesome

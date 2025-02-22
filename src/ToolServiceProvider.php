@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Laravel\Nova\Events\ServingNova;
 use Laravel\Nova\Nova;
 use NormanHuth\NovaBasePackage\ServiceProviderTrait;
+use NormanHuth\NovaMenu\Console\Commands\TailwindColorsCommand;
 
 class ToolServiceProvider extends ServiceProvider
 {
@@ -14,7 +15,6 @@ class ToolServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      *
-     * @return void
      */
     public function boot(): void
     {
@@ -22,23 +22,12 @@ class ToolServiceProvider extends ServiceProvider
             Nova::script('norman-huth-menu', __DIR__ . '/../dist/js/tool.js');
         });
 
-        if ($this->app->runningInConsole()) {
-            $this->addAbout();
-            $this->commands($this->getCommands());
-        }
-    }
+        $this->addAbout();
 
-    /**
-     * Get all package commands
-     *
-     * @return array
-     */
-    protected function getCommands(): array
-    {
-        return array_filter(array_map(function ($item) {
-            return '\\' . __NAMESPACE__ . '\\Console\\Commands\\' . pathinfo($item, PATHINFO_FILENAME);
-        }, glob(__DIR__ . '/Console/Commands/*.php')), function ($item) {
-            return class_basename($item) != 'Command';
-        });
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                TailwindColorsCommand::class,
+            ]);
+        }
     }
 }

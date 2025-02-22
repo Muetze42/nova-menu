@@ -1,23 +1,23 @@
 <template>
-  <div class="relative" v-if="item.path || item.items.length > 0">
+  <div class="relative" v-if="item.path || item.items.length > 0" :class="item.classes.filterClass">
     <component
       :is="component"
       :href="item.path ?? null"
       @click.prevent="handleClick"
       :tabindex="displayAsButton ? 0 : null"
       class="w-full flex items-start px-1 py-1 rounded text-left text-gray-500 dark:text-gray-500 focus:outline-none focus:ring focus:ring-primary-200 dark:focus:ring-gray-600"
-      :class="{
+      :class="[{
         'cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-800':
           displayAsButton,
         'font-bold text-primary-500 dark:text-primary-500': item.active,
-      }"
+      }, item.icons.classes.elem, { 'cursor-pointer menu-iframe-section': item.iframe.target }]"
+      v-tooltip.click="item.tooltip" @click="item.iframe.target ? open = true : null"
     >
       <span class="inline-block shrink-0 w-6 h-6">
         <AdvancedMenuIcon :icons="item.icons" class="inline-block" />
-        <!-- Icon :name="item.icon" class="inline-block" / -->
       </span>
 
-      <span class="flex-1 flex items-center w-full px-3 text-base">
+      <span class="flex-1 flex items-center w-full px-3 text-base" :class="item.icons.classes.label">
         {{ item.name }}
       </span>
 
@@ -35,7 +35,7 @@
       </span>
     </component>
 
-    <div v-if="item.items.length > 0 && !collapsed" class="mt-1 flex flex-col">
+    <div v-if="!item.iframe.target && item.items.length > 0 && !collapsed" class="mt-1 flex flex-col">
       <component
         :is="item.component"
         v-for="item in item.items"
@@ -43,6 +43,9 @@
         :item="item"
       />
     </div>
+  </div>
+  <div :class="item.iframe.wrapper.classes" :style="item.iframe.wrapper.styles" @click="open = false" v-if="open">
+    <iframe :class="item.iframe.iframe.classes" :style="item.iframe.iframe.styles" :src="item.iframe.target" />
   </div>
 </template>
 <script>
@@ -57,9 +60,25 @@ export default {
     Icon,
   },
   mixins: [Collapsable],
-
+  data() {
+    return {
+      open: false
+    };
+  },
+  watch: {
+    open(isOpen) {
+      let body = document.querySelector('body')
+      body.style.overflow = isOpen ? 'hidden' : 'visible'
+    }
+  },
   props: {
-    item: { type: Object, required: true },
+    /**
+     * @type {import("./../types").AdvancedMenuSection}
+     */
+    item: {
+      type: Object,
+      required: true
+    }
   },
 
   methods: {

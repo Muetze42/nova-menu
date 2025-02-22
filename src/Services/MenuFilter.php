@@ -17,7 +17,6 @@ class MenuFilter
     /**
      * Activate main menu filter.
      *
-     * @param string $postion
      *
      * @return \NormanHuth\NovaMenu\Services\MenuFilter
      */
@@ -31,7 +30,6 @@ class MenuFilter
     /**
      * Set menu filter input placeholder.
      *
-     * @param string $placeholder
      *
      * @return \NormanHuth\NovaMenu\Services\MenuFilter
      */
@@ -45,7 +43,6 @@ class MenuFilter
     /**
      * Set menu filter empty text.
      *
-     * @param string $text
      *
      * @return \NormanHuth\NovaMenu\Services\MenuFilter
      */

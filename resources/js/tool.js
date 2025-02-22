@@ -4,8 +4,8 @@ import MenuItem from './components/MenuItem'
 import MenuCard from './components/MenuCard'
 import MainMenu from './components/MainMenu'
 import MenuIcon from './components/MenuIcon.vue'
-import UserMenu from './components/UserMenu'
-import MenuDisclosure from './components/MenuDisclosure'
+// import UserMenu from './components/UserMenu'
+// import MenuDisclosure from './components/MenuDisclosure'
 
 Nova.booting((app, store) => {
   app.component('AdvancedMenuIcon', MenuIcon)
@@ -13,7 +13,7 @@ Nova.booting((app, store) => {
   app.component('AdvancedMenuGroup', MenuGroup)
   app.component('AdvancedMenuItem', MenuItem)
   app.component('AdvancedMenuCard', MenuCard)
-  app.component('menu-disclosure', MenuDisclosure)
-  app.component('MainMenu', MainMenu)
-  app.component('UserMenu', UserMenu)
+  // app.component('AdvancedMenuDisclosure', MenuDisclosure)
+f  app.component('MainMenu', MainMenu)
+  // app.component('UserMenu', UserMenu)
 })

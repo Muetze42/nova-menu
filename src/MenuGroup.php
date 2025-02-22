@@ -53,7 +53,6 @@ class MenuGroup extends Group
                 ),
                 'collapsable' => !$this->iframe['target'] ? $this->collapsable : false,
                 'tooltip' => $this->tooltip,
-                'component' => 'menu-group-norman-huth',
                 'iframe' => $this->iframe,
                 'classes' => $this->classes,
                 'keywords' => $this->keywords,

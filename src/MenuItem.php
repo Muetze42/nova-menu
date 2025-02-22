@@ -14,6 +14,13 @@ class MenuItem extends Item
     use FilterTrait;
 
     /**
+     * The menu's component.
+     *
+     * @var string
+     */
+    public $component = 'advanced-menu-item';
+
+    /**
      * Construct a new Menu Item instance.
      *
      * @param  string  $name
@@ -44,7 +51,6 @@ class MenuItem extends Item
                     ]
                 ),
                 'tooltip' => $this->tooltip,
-                'component' => 'menu-item-norman-huth',
                 'iframe' => $this->iframe,
                 'classes' => $this->classes,
                 'keywords' => $this->keywords,

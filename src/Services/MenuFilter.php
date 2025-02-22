@@ -4,6 +4,8 @@ namespace NormanHuth\NovaMenu\Services;
 
 use Inertia\Inertia;
 use JetBrains\PhpStorm\ExpectedValues;
+use Laravel\Nova\Events\ServingNova;
+use Laravel\Nova\Nova;
 
 class MenuFilter
 {
@@ -11,14 +13,16 @@ class MenuFilter
         #[ExpectedValues(values: ['top', 'bottom', 'both'])]
         string $postion
     ) {
-        Inertia::share('menuAdvPosition', strtolower($postion));
+        Nova::serving(function (ServingNova $event) use ($postion) {
+            Nova::provideToScript([
+                'menuAdvPosition' => strtolower($postion),
+            ]);
+        });
+        //Inertia::share('menuAdvPosition', strtolower($postion));
     }
 
     /**
      * Activate main menu filter.
-     *
-     *
-     * @return \NormanHuth\NovaMenu\Services\MenuFilter
      */
     public static function activate(
         #[ExpectedValues(values: ['top', 'bottom', 'both'])]
@@ -29,9 +33,6 @@ class MenuFilter
 
     /**
      * Set menu filter input placeholder.
-     *
-     *
-     * @return \NormanHuth\NovaMenu\Services\MenuFilter
      */
     public function placeholder(string $placeholder): static
     {
@@ -42,9 +43,6 @@ class MenuFilter
 
     /**
      * Set menu filter empty text.
-     *
-     *
-     * @return \NormanHuth\NovaMenu\Services\MenuFilter
      */
     public function emptyText(string $text): static
     {

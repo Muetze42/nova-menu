@@ -7,12 +7,10 @@ trait TooltipTrait
     /**
      * The Item Tooltip.
      *
-     * @var string|null
      */
     protected ?string $tooltip = null;
 
     /**
-     * @param string $tooltip
      *
      * @return \NormanHuth\NovaMenu\TooltipTrait
      */

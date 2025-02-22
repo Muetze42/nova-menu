@@ -4,9 +4,9 @@ namespace NormanHuth\NovaMenu;
 
 use Closure;
 use Illuminate\Http\Request;
+use Laravel\Nova\Events\ServingNova;
 use Laravel\Nova\Menu\Menu;
 use Laravel\Nova\Nova;
-use Laravel\Nova\Events\ServingNova;
 
 class UnfilteredMainMenu
 {
@@ -27,8 +27,7 @@ class UnfilteredMainMenu
     /**
      * Set the main menu for Nova over the menu filter.
      *
-     * @param Closure(\Illuminate\Http\Request, \Laravel\Nova\Menu\Menu):(\Laravel\Nova\Menu\Menu|array) $callback
-     * @return void
+     * @param  Closure(\Illuminate\Http\Request, \Laravel\Nova\Menu\Menu):(\Laravel\Nova\Menu\Menu|array)  $callback
      */
     public static function over(Closure $callback): void
     {
@@ -47,8 +46,7 @@ class UnfilteredMainMenu
     /**
      * Set the main menu for Nova under the menu filter.
      *
-     * @param Closure(\Illuminate\Http\Request, \Laravel\Nova\Menu\Menu):(\Laravel\Nova\Menu\Menu|array) $callback
-     * @return void
+     * @param  Closure(\Illuminate\Http\Request, \Laravel\Nova\Menu\Menu):(\Laravel\Nova\Menu\Menu|array)  $callback
      */
     public static function under(Closure $callback): void
     {

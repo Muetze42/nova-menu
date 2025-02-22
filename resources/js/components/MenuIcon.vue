@@ -38,7 +38,13 @@ export default {
     Icon,
   },
   props: {
-    icons: { type: Object, required: true },
+    /**
+     * @type {import("./../types").AdvancedMenuIcon}
+     */
+    icons: {
+      type: Object,
+      required: true
+    }
   },
 }
 </script>

@@ -15,16 +15,18 @@ export interface AdvancedMenuCard {
     notFilterable: boolean
 }
 
+export interface AdvancedMenuIcon {
+    fontawesome: string | null
+    heroicon: string | null
+    image: string | null
+    html: string | null
+    height: number
+    classes: AdvancedClasses
+}
+
 export interface AdvancedMenuDisclosure {
     component: string
-    icons: {
-        fontawesome: string | null
-        heroicon: string | null
-        image: string | null
-        html: string | null
-        height: number
-        classes: AdvancedClasses
-    }
+    icons: AdvancedMenuIcon
     classes: AdvancedClasses
     isCustom: boolean
 }
@@ -51,14 +53,7 @@ interface AdvancedMenuElement {
     keywords: string[]
     filterClass: string
     notFilterable: boolean
-    icons: {
-        fontawesome: string | null
-        heroicon: string | null
-        image: string | null
-        html: string | null
-        height: number
-        classes: AdvancedClasses
-    }
+    icons: AdvancedMenuIcon
     classes: AdvancedClasses
 }
 

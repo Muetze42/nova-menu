@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted } from 'vue'
+import { computed, ref } from 'vue'
 import { useStore } from 'vuex'
 
 defineOptions({
@@ -10,13 +10,8 @@ const store = useStore()
 
 const mainMenu = computed(() => store.getters.mainMenu)
 const hasItems = computed(() => mainMenu.value.length > 0)
-
-onMounted(() => {
-  console.log('mainMenu', mainMenu.value)
-})
 </script>
 <template>
-  <!--<pre>{{  mainMenu }}</pre>-->
   <div
     v-if="hasItems"
     class="sidebar-menu space-y-6"

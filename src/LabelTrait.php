@@ -9,28 +9,24 @@ trait LabelTrait
     /**
      * The icon height in pixel.
      *
-     * @var int
      */
     protected int $iconHeight = 18;
 
     /**
      * Icon as label.
      *
-     * @var bool
      */
     protected bool $asLabel = false;
 
     /**
      * The Label gap.
      *
-     * @var float
      */
     protected float $labelGap = 1;
 
     /**
      * Use Icon in label attribute.
      *
-     * @param float $gap
      *
      * @return \NormanHuth\NovaMenu\LabelTrait
      */

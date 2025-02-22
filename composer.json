@@ -18,7 +18,8 @@
         "norman-huth/nova-basic-package": "^1.2"
     },
     "require-dev": {
-        "laravel/nova-devtool": "^1.2"
+        "laravel/nova-devtool": "^1.2",
+        "laravel/pint": "^1.21"
     },
     "repositories": {
         "nova": {

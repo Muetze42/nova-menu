@@ -9,7 +9,7 @@ This package add following features to the [Laravel Nova menu](https://nova.lara
 
 * Heroicon, Font Awesome, SVG & Image Icon for `MenuSection`, `MenuGroup` & `MenuItem`
 * Add new item `MenuCard`
-* Add new item `MenuDisclosure` (a collapsable group element for user menu)
+* ~~Add new item `MenuDisclosure` (a collapsable group element for user menu)~~
 * Add new method `iframe` to create an iframe popup
 * Add `tooltip()` method to `MenuSection`, `MenuGroup`, `MenuItem` & `MenuCard` (undocumented)
 * Add optional menu filter to search menu elements
